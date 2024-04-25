@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://media.discordapp.net/attachments/1108887572618412231/1232775335158747206/img_index.png?ex=662aaeff&is=66295d7f&hm=e4282f9aa7a09aa2a7ddf7a8182e4c2a67e3016f99984587058672691f89ed9b&=&format=webp&quality=lossless&width=687&height=436');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+button {
+    border: none; 
+    padding: 0; 
+    background: transparent;
+    margin-top: 400px;
+}
+button img {
+    width: 120px; 
+    height: 120px; 
+}

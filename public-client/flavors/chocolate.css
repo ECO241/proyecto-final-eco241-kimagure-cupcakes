@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://media.discordapp.net/attachments/1108887572618412231/1232816890804699238/backgroundflavorsc-u.png?ex=662ad5b3&is=66298433&hm=ad14ddabd0a17bc81263ee27498311223c2b2072327c165768aba3600574e18f&=&format=webp&quality=lossless&width=615&height=437');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    
+}
+h1 {
+    font-size: 150px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-family: 'Satisfy';
+    color: #fff;
+}
+img{
+    width: 400px;
+}

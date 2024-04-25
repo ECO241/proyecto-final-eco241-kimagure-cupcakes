@@ -1,0 +1,32 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://media.discordapp.net/attachments/1108887572618412231/1232809505008390216/backgroundflavors.png?ex=662aced2&is=66297d52&hm=9a7c2cd95c79b7399ff9047f062e370a1349fe699d03511b2b6b5acec4887918&=&format=webp&quality=lossless&width=615&height=437');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    
+}
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button {
+    border: none; 
+    padding: 0; 
+    background: transparent;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+button img {
+    width: 200px; 
+    height: 200px; 
+}
+#machine{
+    height: 450px;
+}
