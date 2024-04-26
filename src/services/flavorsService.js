@@ -1,4 +1,4 @@
-const createClient = require('@supabase/supabase-js');
+const { createClient } = require('@supabase/supabase-js');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -12,7 +12,7 @@ if (!supabaseUrl || !supabaseKey) {
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const tablename = " ";
+const tablename = "flavors";
 
 const flavorsService = {
     getAllFlavors: async () => {
@@ -20,7 +20,7 @@ const flavorsService = {
             .from(tablename)
             .select();
         if (error) {
-            throw new Error(error.message);
+            throw new Error(error);
         }
         return data;
     },
@@ -31,7 +31,7 @@ const flavorsService = {
             .select()
             .eq('id', id);
         if (error) {
-            throw new Error(error.message);
+            throw new Error(error);
         }
         return data;
     },
@@ -41,7 +41,7 @@ const flavorsService = {
             .from(tablename)
             .insert(flavor);
         if (error) {
-            throw new Error(error.message);
+            throw new Error(error);
         }
     },
 
@@ -51,7 +51,7 @@ const flavorsService = {
             .update(flavor)
             .eq('id', id);
         if (error) {
-            throw new Error(error.message);
+            throw new Error(error);
         }
     },
 
@@ -61,7 +61,7 @@ const flavorsService = {
             .delete()
             .eq('id', id);
         if (error) {
-            throw new Error(error.message);
+            throw new Error(error);
         }
     },
 };
