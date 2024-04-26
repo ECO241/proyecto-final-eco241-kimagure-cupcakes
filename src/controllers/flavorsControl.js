@@ -7,7 +7,7 @@ const flavorsController = {
             const flavors = await flavorsService.getAllFlavors();
             res.json(flavors);
         } catch (error) {
-            console.error("Error retrieving flavors from Supabase:", error.message);
+            console.error("Error retrieving flavors from Supabase:", error);
             res.status(500).send(error);
         }
     },
@@ -18,7 +18,7 @@ const flavorsController = {
             const flavor = await flavorsService.getFlavorById(id);
             res.json(flavor);
         } catch (error) {
-            console.error("Error retrieving flavor from Supabase:", error.message);
+            console.error("Error retrieving flavor from Supabase:", error);
             res.status(500).send(error);
         }
     },
@@ -41,7 +41,7 @@ const flavorsController = {
             await flavorsService.updateFlavor(id, flavor);
             res.send("Flavor updated successfully");
         } catch (error) {
-            console.error("Error updating flavor in Supabase:", error.message);
+            console.error("Error updating flavor in Supabase:", error);
             res.status(500).send(error);
         }
     },
@@ -52,7 +52,7 @@ const flavorsController = {
             await flavorsService.deleteFlavor(id);
             res.send("Flavor deleted successfully");
         } catch (error) {
-            console.error("Error deleting flavor in Supabase:", error.message);
+            console.error("Error deleting flavor in Supabase:", error);
             res.status(500).send(error);
         }
     }
