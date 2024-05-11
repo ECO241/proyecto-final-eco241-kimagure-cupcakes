@@ -1,4 +1,3 @@
-
 const users = [];
 
 function addUser(username, email) {
@@ -20,11 +19,11 @@ function getAllUsers() {
 }
 
 function findUserByUsername(username) {
-    return users.find(user => user.username === username);
+    return users.find((user) => user.username === username);
 }
 
 module.exports = {
     addUser,
     getAllUsers,
-    findUserByUsername
+    findUserByUsername,
 };
