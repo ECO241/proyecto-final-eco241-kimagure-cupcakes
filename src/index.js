@@ -14,8 +14,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-app.use('/worker', express.static(`${__dirname}/public-worker`));
-app.use('/client', express.static(`${__dirname}/public-client`));
+app.use('/worker', express.static(`${__dirname}/../public/public-worker`));
+app.use('/client', express.static(`${__dirname}/../public/public-client`));
 app.use(express.static(path.join(__dirname, '/public-mobile')));
 
 const flavors = require('./routes/flavorsRoute');

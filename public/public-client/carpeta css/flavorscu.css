@@ -1,0 +1,24 @@
+#optionselected {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://github.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/blob/sofia/imagenes/backgrpundactionflavors.png?raw=true');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+#optionselected h1 {
+    font-size: 150px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-family: 'Satisfy';
+    color: #fff;
+}
+#optionselected img{
+    width: 400px;
+}
