@@ -9,6 +9,8 @@ const cupcake = {
     topping: 'Pending...',
 };
 
+updateOptions(cupcake);
+
 function updateOptions(upOptions) {
     // Limpia el contenido del elemento 'order'
     order.innerHTML = '';
@@ -20,7 +22,6 @@ function updateOptions(upOptions) {
 }
 
 // función 'updateOptions' para actualizar la interfaz con el estado inicial del cupcake
-updateOptions(cupcake);
 
 // Escucha eventos de 'update' del servidor y actualiza la interfaz con el nuevo estado del cupcake
 socket.on('update', (cupcakeUpdate) => {
