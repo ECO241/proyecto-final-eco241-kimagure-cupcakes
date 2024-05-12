@@ -1,6 +1,7 @@
 const express = require('express');
+
 const router = express.Router();
-const flavorsController = require('../controllers/flavorsController');
+const flavorsController = require('../controllers/flavorsControl');
 
 router.get('/', flavorsController.getAllFlavors);
 
