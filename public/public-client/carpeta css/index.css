@@ -1,4 +1,4 @@
-#Pantalla1 {
+#default {
     margin: 0;
     padding: 0;
     background-image: url('https://github.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/blob/sofia/imagenes/img%20index.png?raw=true');
@@ -12,17 +12,17 @@
     width: 100%;
 }
 
-#Pantalla1 .container {
+#default .container {
     text-align: center;
 }
 
-#Pantalla1 button {
+#default button {
     border: none;
     padding: 0;
     background: transparent;
     margin-top: 400px;
 }
-#Pantalla1 button img {
+#default button img {
     width: 120px;
     height: 120px;
 }
