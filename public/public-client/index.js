@@ -37,11 +37,13 @@ function checkState(letter) {
             state = optionsHandler(letter);
             break;
         case 'icingIns':
+            state = instructionsHandler(letter, state);
             break;
         case 'topping':
             state = optionsHandler(letter);
             break;
         case 'toppingIns':
+            state = instructionsHandler(letter, state);
             break;
         case 'finish':
             break;
@@ -174,7 +176,7 @@ function updateOption(arrayOption) {
         renderIntructions(`${arrayOption[actualOption].type}Ins`);
         screenSelected.style.display = 'none';
         screenIntructions.style.display = 'block';
-    }, 3000);
+    }, 5000);
 
     return `${arrayOption[actualOption].type}Ins`;
 }
@@ -203,6 +205,8 @@ const lastKeys = [];
 
 function instructionsHandler(letter, actualState) {
     lastKeys.push(letter);
+    console.log(lastKeys);
+    console.log(actualState);
 
     switch (actualState) {
     case 'flavorIns':
@@ -214,6 +218,7 @@ function instructionsHandler(letter, actualState) {
         }
         return 'flavorIns';
     case 'icingIns':
+        console.log(lastKeys.slice(-5).join(''));
         if (lastKeys.slice(-5).join('') === 'adada') {
             renderOptions('topping');
             screenIntructions.style.display = 'none';
@@ -223,6 +228,7 @@ function instructionsHandler(letter, actualState) {
         return 'icingIns';
     case 'toppingIns':
         if (lastKeys.slice(-5).join('') === 'zzzzz') {
+            renderFinish();
             screenIntructions.style.display = 'none';
             screenFinish.style.display = 'block';
             return 'finish';
@@ -231,4 +237,16 @@ function instructionsHandler(letter, actualState) {
     default:
         return actualState;
     }
+}
+
+// FINISH *****************************************
+
+function renderFinish() {
+    const img = screenFinish.querySelector('#cupcakefinsh');
+    img.src = '';
+
+    setTimeout(() => {
+        screenFinish.style.display = 'none';
+        screenQr.style.display = 'block';
+    }, 10000);
 }
