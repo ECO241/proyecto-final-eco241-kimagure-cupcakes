@@ -1,6 +1,12 @@
 /* eslint-disable no-plusplus */
 // INDEX *****************************************
 
+const PORT = 3000;
+// eslint-disable-next-line no-undef
+const socket = io(`http://localhost:${PORT}`);
+
+socket.on('connect', () => {});
+
 const screenDefault = document.getElementById('default');
 const screenStart = document.getElementById('start');
 const screenOptions = document.getElementById('options');
