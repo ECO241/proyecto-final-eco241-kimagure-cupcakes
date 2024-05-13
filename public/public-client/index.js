@@ -31,6 +31,7 @@ function checkState(letter) {
             state = optionsHandler(letter);
             break;
         case 'flavorIns':
+            state = instructionsHandler(letter, state);
             break;
         case 'icing':
             state = optionsHandler(letter);
@@ -104,8 +105,19 @@ async function organizeFlavors() {
 
 async function renderOptions(actualState) {
     const fullarray = await organizeFlavors();
-    if (actualState === 'flavor') {
+    switch (actualState) {
+    case 'flavor':
         array = fullarray.flavor;
+        break;
+    case 'icing':
+        array = fullarray.icing;
+        break;
+    case 'topping':
+        array = fullarray.topping;
+        break;
+
+    default:
+        break;
     }
     const divOptions = document.querySelector('.glaze');
     divOptions.innerHTML = '';
@@ -115,7 +127,6 @@ async function renderOptions(actualState) {
         const img = document.createElement('img');
         img.src = array[i].img;
         button.appendChild(img);
-        console.log(button);
         if (i !== actualOption) {
             button.classList.add('grayscale');
         }
@@ -130,18 +141,17 @@ function optionsHandler(letter) {
             actualOption -= 1;
         }
         renderOptions(array[actualOption].type);
-        return 'flavor';
+        return array[actualOption].type;
     case 'd':
         if (actualOption < 3) {
             actualOption += 1;
         }
         renderOptions(array[actualOption].type);
-        return 'flavor';
+        return array[actualOption].type;
     case 'z':
-        updateOption(array, actualOption);
-        break;
+        return updateOption(array);
     default:
-        break;
+        return array[actualOption].type;
     }
 }
 
@@ -149,16 +159,76 @@ function updateOption(arrayOption) {
     cupcake[arrayOption[actualOption].type] = arrayOption[actualOption].name;
     // enviarse al worker con socket
 
+    const textOptions = ['Yummy!', 'Delicioso!', 'Genial!'];
+    screenSelected.innerHTML = '';
     const img = document.createElement('img');
     img.src = arrayOption[actualOption].img;
+    const h1 = document.createElement('h1');
+    h1.textContent = textOptions[actualOption];
+    screenSelected.appendChild(h1);
+    screenSelected.appendChild(img);
     screenOptions.style.display = 'none';
     screenSelected.style.display = 'block';
 
     setTimeout(() => {
-        
+        renderIntructions(`${arrayOption[actualOption].type}Ins`);
         screenSelected.style.display = 'none';
-        screenOptions.style.display = 'block';
+        screenIntructions.style.display = 'block';
     }, 3000);
-    // el wonderful
-    // cambio de pantalla
+
+    return `${arrayOption[actualOption].type}Ins`;
+}
+
+// INSTRUCTIONS *****************************************
+
+function renderIntructions(stateIns) {
+    const intructionDiv = document.querySelector('.instruction');
+    switch (stateIns) {
+    case 'flavorIns':
+        intructionDiv.innerHTML = '<h1>Mueve el joystick de arriba a abajo</h1> <h2>Para añadir la masa</h2>';
+        break;
+    case 'icingIns':
+        intructionDiv.innerHTML = '<h1>Mueve el joystick de izquierda a derecha</h1> <h2>Para añadir el glaseado</h2>';
+        break;
+    case 'toppingIns':
+        intructionDiv.innerHTML = '<h1>Presiona el joystick varias veces</h1> <h2>Para añadir el topping</h2>';
+        break;
+
+    default:
+        break;
+    }
+}
+
+const lastKeys = [];
+
+function instructionsHandler(letter, actualState) {
+    lastKeys.push(letter);
+
+    switch (actualState) {
+    case 'flavorIns':
+        if (lastKeys.slice(-5).join('') === 'wswsw') {
+            renderOptions('icing');
+            screenIntructions.style.display = 'none';
+            screenOptions.style.display = 'block';
+            return 'icing';
+        }
+        return 'flavorIns';
+    case 'icingIns':
+        if (lastKeys.slice(-5).join('') === 'adada') {
+            renderOptions('topping');
+            screenIntructions.style.display = 'none';
+            screenOptions.style.display = 'block';
+            return 'topping';
+        }
+        return 'icingIns';
+    case 'toppingIns':
+        if (lastKeys.slice(-5).join('') === 'zzzzz') {
+            screenIntructions.style.display = 'none';
+            screenFinish.style.display = 'block';
+            return 'finish';
+        }
+        return 'toppingIns';
+    default:
+        return actualState;
+    }
 }
