@@ -5,7 +5,11 @@ const PORT = 3000;
 // eslint-disable-next-line no-undef
 const socket = io(`http://localhost:${PORT}`);
 
-socket.on('connect', () => {});
+socket.on('move', (move) => {
+    const moveWithoutSpaces = move.replace(/\s/g, '');
+    console.log(moveWithoutSpaces);
+    checkState(moveWithoutSpaces);
+});
 
 const screenDefault = document.getElementById('default');
 const screenStart = document.getElementById('start');
