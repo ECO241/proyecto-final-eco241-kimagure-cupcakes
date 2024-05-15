@@ -1,0 +1,4 @@
+/node_modules
+/.env
+/wip_tests
+/src/models
