@@ -1,4 +1,4 @@
-const createClient = require('@supabase/supabase-js');
+const {createClient} = require('@supabase/supabase-js');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -12,7 +12,7 @@ if (!supabaseUrl || !supabaseKey) {
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const tablename = " ";
+const tablename = "flavors";
 
 const flavorsService = {
     getAllFlavors: async () => {

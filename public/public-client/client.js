@@ -56,16 +56,23 @@ function displayOptions() {
         })
         options.appendChild(option);
     })
+
     const finishbtn = document.createElement('button');
     finishbtn.textContent = 'Finish';
     options.appendChild(finishbtn);
+
     finishbtn.addEventListener('click', () => {
-        options.style.display = 'none';
-        // Cuando se hace clic en el botón, oculta las opciones y muestra el código QR
-        qr.style.display = 'block';
-        // Emite un evento de "finalizar pedido" al servidor a través del socket junto con la información del cupcake
-        socket.emit('finishorder', cupcake);
-    })
+    options.style.display = 'none';
+    qr.style.display = 'block';
+    const order = {
+        name: cupcake.name,
+        flavor: cupcake.flavor,
+        icing: cupcake.icing,
+        topping: cupcake.topping
+    };
+
+    socket.emit('finishorder', order);
+});
 }
  
 
