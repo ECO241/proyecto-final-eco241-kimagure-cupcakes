@@ -68,6 +68,7 @@ function checkState(letter) {
 }
 
 window.addEventListener('keydown', (event) => {
+    console.log(state);
     checkState(event.key);
     console.log(event.key);
     console.log(state);
@@ -79,9 +80,9 @@ function defaultHandler(letter) {
     if (letter === 'z') {
         screenDefault.style.display = 'none';
         screenStart.style.display = 'block';
+        return 'start';
     }
-
-    return 'start';
+    return 'default';
 }
 
 // START *****************************************
@@ -155,7 +156,7 @@ function optionsHandler(letter) {
         renderOptions(array[actualOption].type);
         return array[actualOption].type;
     case 'd':
-        if (actualOption < 3) {
+        if (actualOption < 2) {
             actualOption += 1;
         }
         renderOptions(array[actualOption].type);
