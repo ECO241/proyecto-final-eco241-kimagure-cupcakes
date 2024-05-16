@@ -1,35 +1,37 @@
-body {
+#start {
     margin: 0;
     padding: 0;
-    background-image: url('https://media.discordapp.net/attachments/1108887572618412231/1232780460921196565/img_start.png?ex=662ab3c5&is=66296245&hm=6278458c8afabf3060de6276e21bfb225cba08cd3441127e4b5b72fcc0aa93ff&=&format=webp&quality=lossless&width=881&height=626');
+    background-image: url('https://github.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/blob/sofia/imagenes/img%20start.png?raw=true');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center; 
+    background-position: center;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     text-align: center;
-    
+    height: 100%;
+    width: 100%;
+
 }
 
-section {
+#start section {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h1 {
+#start h1 {
     font-size: 150px;
     margin-bottom: 20px;
     font-family: 'Satisfy';
     color: #352626;
 }
 
-.start{
+#start .start{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
 
 }
 ::placeholder {
@@ -37,7 +39,7 @@ h1 {
     font-size: 20px;
 }
 
-input {
+#start input {
     border-radius: 10px;
     background-color: white;
     opacity: 0.6;
@@ -51,7 +53,7 @@ input {
     text-align: center;
   }
 
-button {
+  #start button {
     background-color: #FFFFFF;
     color: rgb(0, 0, 0);
     border: none;
