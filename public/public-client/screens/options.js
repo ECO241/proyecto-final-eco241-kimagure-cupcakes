@@ -64,8 +64,8 @@ function optionsHandler(letter) {
 }
 
 function updateOption(arrayOption) {
-    cupcake[arrayOption[actualOption].type] = arrayOption[actualOption].name;
-    // enviarse al worker con socket
+    cupcake[arrayOption[actualOption].type] = arrayOption[actualOption].flavor;
+    // enviarse al worker con socket (EMIT TODO EL CUPCAKE)
 
     const textOptions = ['Yummy!', 'Delicioso!', 'Genial!'];
     screenSelected.innerHTML = '';

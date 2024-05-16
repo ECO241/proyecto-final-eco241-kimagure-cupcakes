@@ -20,7 +20,6 @@ const lastKeys = [];
 
 function instructionsHandler(letter, actualState) {
     lastKeys.push(letter);
-    console.log(lastKeys);
     console.log(actualState);
 
     switch (actualState) {
