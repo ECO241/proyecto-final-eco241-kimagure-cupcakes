@@ -96,9 +96,10 @@ function startHandler(letter) {
         renderOptions('flavor');
         screenStart.style.display = 'none';
         screenOptions.style.display = 'block';
+        return 'flavor';
     }
 
-    return 'flavor';
+    return 'start';
 }
 
 // OPTIONS *****************************************
