@@ -1,26 +1,34 @@
-body {
+#instructions , #finish, #qr{
     margin: 0;
     padding: 0;
-    background-image: url('https://media.discordapp.net/attachments/1108887572618412231/1232824960335220800/backgrpundactionflavors.png?ex=662add37&is=66298bb7&hm=9a5f0495f4a9dc0275bc708d27c08b915454fb0ac78fa0f23e82ca0ea3211668&=&format=webp&quality=lossless&width=881&height=626');
+    background-image: url('https://github.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/blob/sofia/imagenes/backgrpundactionflavors.png?raw=true');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
-    justify-content: center; 
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    text-align: center;  
+    text-align: center;
+    width: 100%;
+    height: 100%;
 }
-h1 {
+#instructions h1 , #finish h1, #qr h1{
     font-size: 100px;
     margin-top: 40px;
     margin-bottom: 10px;
     font-family: 'Satisfy';
     color: #fff;
 }
-h2 {
+#instructions h2 , #finish h2, #qr h2{
     font-size: 50px;
     margin-top: 30px;
     margin-bottom: 10px;
     font-family: 'Satisfy';
     color: #fff;
+}
+
+#instructions img , #finish img, #qr img{
+    width: 400px;
+    height: auto;
 }
