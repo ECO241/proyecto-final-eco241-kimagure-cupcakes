@@ -3,7 +3,7 @@ function startHandler(letter) {
         const nameInput = document.getElementById('name');
         const name = nameInput.value;
         cupcake.name = name;
-        // EMIT EL CUPCAKE SOCKET PAL WORKER
+        socketFuntion.updateCupcake(cupcake);
         renderOptions('flavor');
         screenStart.style.display = 'none';
         screenOptions.style.display = 'block';

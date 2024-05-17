@@ -21,6 +21,7 @@ const lastKeys = [];
 function instructionsHandler(letter, actualState) {
     lastKeys.push(letter);
     console.log(actualState);
+    console.log(lastKeys.slice(-5).join(''));
 
     switch (actualState) {
     case 'flavorIns':

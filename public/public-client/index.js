@@ -12,6 +12,7 @@ const screenQr = document.getElementById('qr');
 
 socket.on('move', (move) => {
     const moveWithoutSpaces = move.replace(/\s/g, '');
+    console.log(moveWithoutSpaces);
     checkState(moveWithoutSpaces);
 });
 
@@ -67,9 +68,10 @@ window.addEventListener('keydown', (event) => {
     checkState(event.key);
 });
 
-// load scripts *************
+// load scripts *********************************************
 
-const scriptDir = './screens'; // Adjust the path if necessary
+const scriptDir = './screens';
+const utilsDir = './utils';
 
 function loadScripts() {
     const scripts = [
@@ -79,6 +81,16 @@ function loadScripts() {
         'instructions.js',
         'finish.js',
     ];
+
+    const utils = [
+        'socket.js',
+    ];
+
+    utils.forEach((util) => {
+        const scriptElement = document.createElement('script');
+        scriptElement.src = `${utilsDir}/${util}`;
+        document.body.appendChild(scriptElement);
+    });
 
     scripts.forEach((script) => {
         const scriptElement = document.createElement('script');
