@@ -43,7 +43,7 @@ function emitMove(data) {
 // SERIAL PORT ***********************************************
 
 const port = new SerialPort({
-    path: 'COM5',
+    path: 'COM6',
     baudRate: 9600,
 });
 
