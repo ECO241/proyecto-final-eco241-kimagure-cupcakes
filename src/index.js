@@ -3,6 +3,7 @@ const http = require('http');
 const socketIO = require('socket.io');
 const path = require('path');
 const cors = require('cors');
+const orderRoutes = require('./routes/orderRoute');
 const { createClient } = require('@supabase/supabase-js');
 const dotenv = require('dotenv');
 
@@ -23,6 +24,7 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 const supabase = createClient(supabaseUrl, supabaseKey);
+const tablename = "orders";
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -54,6 +56,13 @@ io.on('connection', (socket) => {
         console.log('Nuevo pedido recibido:', order); // Verificar que los datos del pedido se reciben correctamente
         io.emit('newOrder', order); // Emitir el evento al worker
         // Almacena los detalles del pedido en la tabla de Supabase utilizando el servicio
+        
+        supabase
+            .from(tablename)
+            .insert(order)
+            .then(() => console.log('Order details inserted into Supabase table'))
+            .catch(error => console.error('Error inserting order details into Supabase:', error.message));
+        
         try {
             await orderService.createOrder(order);
             console.log('Order details inserted into Supabase table');
@@ -62,6 +71,8 @@ io.on('connection', (socket) => {
         }
     });
 });
+
+app.use('/order', orderRoutes);
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
