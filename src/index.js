@@ -58,11 +58,12 @@ io.on('connection', (socket) => {
     });
 
     socket.on('finishorder', (cupcake) => {
-        io.emit('finishorder', cupcake);
+        io.emit('newOrder', cupcake);
     });
 
-    socket.on('newOrder', (order) => {
-        io.emit('newOrder', order); // Emitir el evento al worker
+    io.on('newOrder', (order) => {
+        console.log('New order:', order);
+        // io.emit('newOrder', order);  Emitir el evento al worker
         // Almacena los detalles del pedido en la tabla de Supabase
         supabase
             .from(tablename)
@@ -81,7 +82,7 @@ function emitMove(data) {
 // SERIAL PORT ***********************************************
 
 const port = new SerialPort({
-    path: 'COM6',
+    path: 'COM5',
     baudRate: 9600,
 });
 
