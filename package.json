@@ -2,8 +2,10 @@
   "name": "cupcake",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon --experimental-modules src/index.js",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
@@ -13,11 +15,14 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
+    "serialport": "^12.0.0",
     "socket.io": "^4.7.4",
-    "socket.io-client": "^4.7.5",
     "zod": "^3.23.3"
   },
   "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
     "nodemon": "^3.1.0"
   },
   "description": ""
