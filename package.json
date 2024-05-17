@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "nodemon --experimental-modules src/index.js",
     "lint": "eslint ."
   },
   "keywords": [],

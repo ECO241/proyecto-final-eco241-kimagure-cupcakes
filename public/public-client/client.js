@@ -1,5 +1,6 @@
 const socket = io();
 
+const start = document.querySelector('.start');
 const namediv = document.querySelector('.name');
 const options = document.querySelector('.options');
 const qr = document.querySelector('.qr');
@@ -22,6 +23,20 @@ const cupcake = {
     topping: 'Pending...',
 };
 
+startbtn.addEventListener('click', () => {
+    start.style.display = 'none';
+    namediv.style.display = 'block';
+});
+
+namebtn.addEventListener('click', () => {
+    cupcake.name = nameinput.value;
+    socket.emit('update', cupcake);
+
+    namediv.style.display = 'none';
+    options.style.display = 'block';
+    displayOptions();
+});
+
 function displayOptions() {
     // Agrega las opciones a cada elemento
     optionsList.forEach((list, i) => {
@@ -41,27 +56,21 @@ function displayOptions() {
         });
         options.appendChild(option);
     });
+
     const finishbtn = document.createElement('button');
     finishbtn.textContent = 'Finish';
     options.appendChild(finishbtn);
+
     finishbtn.addEventListener('click', () => {
         options.style.display = 'none';
-        // Cuando se hace clic en el botón, oculta las opciones y muestra el código QR
         qr.style.display = 'block';
-        socket.emit('finishorder', cupcake);
+        const order = {
+            name: cupcake.name,
+            flavor: cupcake.flavor,
+            icing: cupcake.icing,
+            topping: cupcake.topping,
+        };
+
+        socket.emit('finishorder', order);
     });
 }
-
-startbtn.addEventListener('click', () => {
-    start.style.display = 'none';
-    namediv.style.display = 'block';
-});
-
-namebtn.addEventListener('click', () => {
-    cupcake.name = nameinput.value;
-    socket.emit('update', cupcake);
-
-    namediv.style.display = 'none';
-    options.style.display = 'block';
-    displayOptions();
-});
