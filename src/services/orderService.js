@@ -1,6 +1,7 @@
 const { createClient } = require('@supabase/supabase-js');
 const dotenv = require('dotenv');
 
+
 dotenv.config();
 
 const supabaseUrl = process.env.SUPABASE_TEAM;
@@ -35,7 +36,17 @@ const orderService = {
             console.error("Error al insertar en Supabase:", error.message);
             throw error;
         }
-    }
+    },
+
+    getAllOrders: async () => {
+        const { data, error } = await supabase
+            .from(tableName)
+            .select();
+        if (error) {
+            throw new Error(error.message);
+        }
+        return data;
+    },
 };
 
 module.exports = orderService;
