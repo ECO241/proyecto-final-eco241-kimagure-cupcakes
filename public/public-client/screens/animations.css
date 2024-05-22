@@ -1,0 +1,134 @@
+.loader {
+	--color: white;
+	--size-mid: 6vmin;
+	--size-dot: 1.5vmin;
+	--size-bar: 0.4vmin;
+	--size-square: 3vmin;
+
+	display: block;
+	position: relative;
+	width: 50%;
+	display: grid;
+	place-items: center;
+}
+
+.loader::before,
+.loader::after {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+}
+
+
+
+/**
+	loader --updown
+**/
+.loader.--updown::before,
+.loader.--updown::after {
+	width: var(--size-dot);
+	height: var(--size-dot);
+	background-color: var(--color);
+	border-radius: 50%;
+	animation: loader-updown 1s ease-in-out infinite;
+}
+
+.loader.--updown::before {
+	left: calc(50% - 1.6vmin - var(--size-dot));
+}
+
+.loader.--updown::after {
+	display: none;
+}
+
+@keyframes loader-updown {
+	0%, 100% {
+		transform: translateY(-2.6vmin);
+	}
+
+	44% {
+		transform: translateY(2.6vmin);
+	}
+}
+
+/**
+	loader --leftright
+**/
+
+.loader.--leftright::before {
+    width: var(--size-dot);
+	height: var(--size-dot);
+	background-color: var(--color);
+	border-radius: 50%;
+    animation: loader-leftright 1s ease-in-out infinite;
+}
+
+@keyframes loader-leftright {
+    0%, 100% {
+        transform: translateX(-2.6vmin);
+    }
+
+    50% {
+        transform: translateX(2.6vmin);
+    }
+}
+
+/**
+	loader --click
+**/
+
+.loader.--click::before {
+    width: var(--size-dot, );
+    height: var(--size-dot, );
+    background-color: var(--color,);
+    border-radius: 50%;
+    animation: loader-click 0.5s ease-in-out infinite;
+}
+
+@keyframes loader-click{
+	0%, 100% {
+		opacity: 0;
+	}
+
+	33% {
+		opacity: 0.3;
+	}
+
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(4);
+	}
+}
+
+
+/**
+	miscs
+**/
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(3, 18vmin);
+	grid-template-rows: repeat(3, 18vmin);
+	grid-gap: 1vmin;
+}
+
+.item	{
+	background: rgb(100, 100, 100);
+	display: grid;
+	place-items: center;
+	border-radius: 4px;
+	opacity: 0.5;
+}
+html, body {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(234, 0, 255);
+	font-family: 'Noto Sans', sans-serif;
+	color: white;
+	text-align: center;
+	letter-spacing: 0.3px;
+}
