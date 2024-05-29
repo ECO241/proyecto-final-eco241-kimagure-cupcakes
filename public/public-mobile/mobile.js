@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 4474310 (QR)
 const users = [];
 
 function addUser(username, email) {
@@ -23,20 +19,11 @@ function getAllUsers() {
 }
 
 function findUserByUsername(username) {
-<<<<<<< HEAD
-    return users.find(user => user.username === username);
-=======
     return users.find((user) => user.username === username);
->>>>>>> 4474310 (QR)
 }
 
 module.exports = {
     addUser,
     getAllUsers,
-<<<<<<< HEAD
-    findUserByUsername
-};
-=======
     findUserByUsername,
 };
->>>>>>> 4474310 (QR)

@@ -1,8 +1,5 @@
 const express = require('express');
-<<<<<<< HEAD
-=======
 
->>>>>>> 4474310 (QR)
 const router = express.Router();
 const flavorsController = require('../controllers/flavorsControl');
 
@@ -16,8 +13,4 @@ router.put('/:id', flavorsController.updateFlavor);
 
 router.delete('/:id', flavorsController.deleteFlavor);
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-module.exports = router;
->>>>>>> 4474310 (QR)

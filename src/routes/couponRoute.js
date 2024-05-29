@@ -4,6 +4,6 @@ const couponController = require('../controllers/couponControl');
 const router = express.Router();
 
 // Endpoint para generar el código QR
-router.get('/generate-qr', couponController.generateQR);
+router.get('/generate-QR', couponController.generateQR);
 
 module.exports = router;
