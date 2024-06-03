@@ -21,23 +21,17 @@ const lastKeys = [];
 function instructionsHandler(letter, actualState) {
     lastKeys.push(letter);
     console.log(actualState);
-    console.log(lastKeys.slice(-5).join(''));
 
     switch (actualState) {
     case 'flavorIns':
         if (lastKeys.slice(-3).join('') === 'wsw') {
-            renderOptions('icing');
-            screenIntructions.style.display = 'none';
-            screenOptions.style.display = 'block';
+            instructionsDone('icing');
             return 'icing';
         }
         return 'flavorIns';
     case 'icingIns':
-        console.log(lastKeys.slice(-5).join(''));
         if (lastKeys.slice(-3).join('') === 'ada') {
-            renderOptions('topping');
-            screenIntructions.style.display = 'none';
-            screenOptions.style.display = 'block';
+            instructionsDone('topping');
             return 'topping';
         }
         return 'icingIns';
@@ -52,4 +46,24 @@ function instructionsHandler(letter, actualState) {
     default:
         return actualState;
     }
+}
+
+function instructionsDone(nextState) {
+    console.log(array);
+    const textOptions = ['Yummy!', 'Delicioso!', 'Genial!'];
+    screenSelected.innerHTML = '';
+    const img = document.createElement('img');
+    img.src = array[actualOption].img;
+    const h1 = document.createElement('h1');
+    h1.textContent = textOptions[actualOption];
+    screenSelected.appendChild(h1);
+    screenSelected.appendChild(img);
+    screenIntructions.style.display = 'none';
+    screenSelected.style.display = 'block';
+
+    setTimeout(() => {
+        renderOptions(nextState);
+        screenSelected.style.display = 'none';
+        screenOptions.style.display = 'block';
+    }, 2000);
 }
