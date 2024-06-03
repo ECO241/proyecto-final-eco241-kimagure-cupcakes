@@ -15,14 +15,14 @@
 }
 #instructions h1 , #finish h1, #qr h1{
     font-size: 100px;
-    margin-top: 40px;
+    margin-top: 0px;
     margin-bottom: 10px;
     font-family: 'Satisfy';
     color: #fff;
 }
 #instructions h2 , #finish h2, #qr h2{
     font-size: 50px;
-    margin-top: 30px;
+    margin-top: 0px;
     margin-bottom: 10px;
     font-family: 'Satisfy';
     color: #fff;

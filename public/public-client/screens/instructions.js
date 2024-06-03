@@ -25,7 +25,7 @@ function instructionsHandler(letter, actualState) {
 
     switch (actualState) {
     case 'flavorIns':
-        if (lastKeys.slice(-5).join('') === 'wswsw') {
+        if (lastKeys.slice(-3).join('') === 'wsw') {
             renderOptions('icing');
             screenIntructions.style.display = 'none';
             screenOptions.style.display = 'block';
@@ -34,7 +34,7 @@ function instructionsHandler(letter, actualState) {
         return 'flavorIns';
     case 'icingIns':
         console.log(lastKeys.slice(-5).join(''));
-        if (lastKeys.slice(-5).join('') === 'adada') {
+        if (lastKeys.slice(-3).join('') === 'ada') {
             renderOptions('topping');
             screenIntructions.style.display = 'none';
             screenOptions.style.display = 'block';

@@ -3,6 +3,7 @@ const socketFuntion = {
         socket.emit('update', cupcake);
     },
     finishOrder: (order) => {
+        console.log(order);
         socket.emit('finishorder', order);
     },
 };

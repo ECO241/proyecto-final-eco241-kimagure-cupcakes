@@ -82,7 +82,7 @@ function updateOption(arrayOption) {
         renderIntructions(`${arrayOption[actualOption].type}Ins`);
         screenSelected.style.display = 'none';
         screenIntructions.style.display = 'block';
-    }, 5000);
+    }, 2000);
 
     return `${arrayOption[actualOption].type}Ins`;
 }

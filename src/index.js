@@ -57,12 +57,20 @@ io.on('connection', (socket) => {
         io.emit('update', cupcake);
     });
 
-    socket.on('finishorder', (cupcake) => {
-        io.emit('finishorder', cupcake);
+    socket.on('finishorder', (order) => {
+        console.log('New order:', order);
+        // io.emit('newOrder', order);  Emitir el evento al worker
+        // Almacena los detalles del pedido en la tabla de Supabase
+        supabase
+            .from(tablename)
+            .insert(order)
+            .then(() => console.log('Order details inserted into Supabase table'))
+            .catch((error) => console.error('Error inserting order details into Supabase:', error.message));
     });
 
     socket.on('newOrder', (order) => {
-        io.emit('newOrder', order); // Emitir el evento al worker
+        console.log('New order:', order);
+        // io.emit('newOrder', order);  Emitir el evento al worker
         // Almacena los detalles del pedido en la tabla de Supabase
         supabase
             .from(tablename)
