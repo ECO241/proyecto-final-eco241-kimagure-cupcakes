@@ -37,9 +37,7 @@ function instructionsHandler(letter, actualState) {
         return 'icingIns';
     case 'toppingIns':
         if (lastKeys.slice(-5).join('') === 'zzzzz') {
-            renderFinish();
-            screenIntructions.style.display = 'none';
-            screenFinish.style.display = 'block';
+            instructionsDone('finish');
             return 'finish';
         }
         return 'toppingIns';
@@ -62,6 +60,12 @@ function instructionsDone(nextState) {
     screenSelected.style.display = 'block';
 
     setTimeout(() => {
+        if (nextState === 'finish') {
+            renderFinish();
+            screenSelected.style.display = 'none';
+            screenFinish.style.display = 'block';
+            return;
+        }
         renderOptions(nextState);
         screenSelected.style.display = 'none';
         screenOptions.style.display = 'block';
