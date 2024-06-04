@@ -3,7 +3,6 @@ const PORT = 'https://b143-186-168-96-243.ngrok-free.app';
 const socket = io(PORT);
 
 const screenDefault = document.getElementById('default');
-const screenStart = document.getElementById('start');
 const screenOptions = document.getElementById('options');
 const screenSelected = document.getElementById('optionselected');
 const screenIntructions = document.getElementById('instructions');
@@ -19,10 +18,10 @@ socket.on('move', (move) => {
 let state = 'default';
 
 const cupcake = {
-    name: 'Pending...',
-    flavor: 'Pending...',
-    icing: 'Pending...',
-    topping: 'Pending...',
+    name: 'Name pending...',
+    flavor: '',
+    icing: '',
+    topping: '',
 };
 
 function checkState(letter) {

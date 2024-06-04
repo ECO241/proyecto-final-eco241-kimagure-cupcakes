@@ -59,6 +59,10 @@ io.on('connection', (socket) => {
         io.emit('update', cupcake);
     });
 
+    socket.on('namefilled', (name) => {
+        io.emit('namefilled', name);
+    });
+
     socket.on('finishorder', (order) => {
         io.emit('finishorder', order);
         // io.emit('newOrder', order);  Emitir el evento al worker

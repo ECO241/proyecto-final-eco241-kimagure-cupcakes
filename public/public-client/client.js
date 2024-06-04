@@ -17,7 +17,7 @@ const optionsList = [
 ];
 
 const cupcake = {
-    name: 'Pending...',
+    name: 'Name pending...',
     flavor: 'Pending...',
     icing: 'Pending...',
     topping: 'Pending...',
