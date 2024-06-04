@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const orderController = require('../controllers/orderControl');
 
@@ -9,4 +10,3 @@ router.get('/', orderController.getAllOrders);
 router.post('/createOrder', orderController.createOrder); // Modifica la ruta aquí
 
 module.exports = router;
-

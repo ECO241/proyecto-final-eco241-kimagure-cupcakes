@@ -3,29 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kimagure</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1784/1784096.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="carpeta css/flavors.css">
+    <link rel="stylesheet" href="carpeta css/flavorscu.css">
+    <link rel="stylesheet" href="carpeta css/start.css">
+    <link rel="stylesheet" href="carpeta css/jump.css">
+    <link rel="stylesheet" href="carpeta css/index.css">
+    <link rel="stylesheet" href="carpeta css/global.css">
+    <link rel="stylesheet" href="carpeta css/animations.css">
     <script src="/socket.io/socket.io.js"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>client screen</h1>
-
-    <div class="start">
-        <button class="startbtn">Start</button>
+    <div id="default">
+        <div class="container">
+            <a>
+                <button id="startButton">
+                    <img src="https://raw.githubusercontent.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/sofia/imagenes/playindex.png" alt="Start">
+                </button>
+            </a>
+        </div>
     </div>
 
-    <div class="name">
-        <input name="username" type="text" class="nameinput" placeholder="name">
-        <button class="namebtn">Go</button>
+
+    <div id="start" style="display: none;">
+        <section>
+            <div class="title">
+                <h1>Kimagure</h1>
+            </div>
+            <div class="start">
+                <input placeholder="Enter your Name" type="text" id="name" name="name">
+                <a>
+                <button type="button">Start Game</button>
+                </a>
+            </div>
+        </section>
     </div>
 
-    <div class="options">
+
+    <div id="options" style="display: none;">
+        <section>
+            <div class="glaze">
+            </div>
+            <div>
+                <img id="machine" src="https://github.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/blob/main/imagenes/machine1.png?raw=true" alt="" srcset="">
+                <div id="cupcakeImage"></div>
+            </div>
+        </section>
     </div>
 
-    <div class="qr">
-        <h2>QR jj</h2>
+
+    <div id="optionselected" style="display: none;">
     </div>
-    
-    <script src="client.js"></script>
+
+
+    <div id="instructions" style="display: none;">
+        <a>
+            <div class="instruction">
+            </div>
+        </a>
+    </div>
+
+    <div id="finish" style="display: none;">
+        <h1>Enjoy ur Cupcake!!</h1>
+    </div>
+
+    <div id="qr" style="display: none;">
+        <h1>Get a discount coupon at our store!!</h1>
+        <img id="qr" src="https://github.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/blob/sofia/imagenes/glazevanilla.png?raw=true" alt="" srcset="">
+
+    </div>
+
+<script src="index.js"></script>
 </body>
 </html>

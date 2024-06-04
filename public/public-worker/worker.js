@@ -1,51 +1,36 @@
 const socket = io();
 
 const order = document.querySelector('.order');
+const history = document.querySelector('.history');
 
-let cupcake = {
-    name: 'Pending...',
-    flavor: 'Pending...',
-    icing: 'Pending...',
-    topping: 'Pending...'
-}
+const cupcake = {
+    name: 'Nombre pendiente...',
+    flavor: '',
+    icing: '',
+    topping: '',
+};
 
-// función 'updateOptions' para actualizar la interfaz con el estado inicial del cupcake
 updateOptions(cupcake);
 
-// Escucha eventos de 'update' del servidor y actualiza la interfaz con el nuevo estado del cupcake
 socket.on('update', (cupcake) => {
-    console.log('New cupcake update:', cupcake);
     updateOptions(cupcake);
 });
 
-function updateOptions(cupcake) { 
-    // Limpia el contenido del elemento 'order' 
-    order.innerHTML = '';
-    // crea un texto para el nombre, glaseado, etc
-    const text = document.createElement('p');
-    text.textContent = `Name: ${cupcake.name}, Flavor: ${cupcake.flavor}, Icing: ${cupcake.icing}, Topping: ${cupcake.topping}`;
-    //Actualiza la interface
-    order.appendChild(text);
+function updateOptions(cupcake) {
+    order.innerHTML = `
+        <p><b>${cupcake.name}</b></p>
+        <p>Masa: ${cupcake.flavor}</p>
+        <p>Cobertura: ${cupcake.icing}</p>
+        <p>Decoración: ${cupcake.topping}</p>`;
 }
 
-// Escucha eventos de 'finishorder' del servidor y muestra una alerta cuando se completa el pedido
-socket.on('finishorder', async (cupcake) => {
-    console.log('Order finished:', cupcake);
-    alert('Pedido realizado');
+socket.on('finishorder', (cup) => {
+    // ACÁ CÓDIGO DEL UTILS DEL SUPABASE PA ENVIAR ESA ORDEN
+    updateOptions(cupcake);
 
-    // Agrega código para enviar los datos a Supabase
-    try {
-        console.log('Enviando datos a Supabase:', cupcake);
-        const response = await fetch('/api/createOrder', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cupcake)
-        });
-        const data = await response.json();
-        console.log('Respuesta de Supabase:', data);
-    } catch (error) {
-        console.error('Error al enviar datos a Supabase:', error);
-    }
+    const cupDiv = document.createElement('div');
+    cupDiv.innerHTML = `
+        <p><b>${cup.name}</b></p>
+        <p>${cup.flavor} - ${cup.icing} - ${cup.topping}</p>`;
+    history.appendChild(cupDiv);
 });

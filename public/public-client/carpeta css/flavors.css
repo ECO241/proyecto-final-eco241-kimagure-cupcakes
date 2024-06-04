@@ -1,0 +1,44 @@
+body{
+    background-image: url('https://raw.githubusercontent.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/sofia/imagenes/backgroundflavors.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+#options {
+    align-items: center;
+    text-align: center;
+    width: 100vw;
+}
+#options section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#options button {
+    border: none;
+    padding: 0;
+    background: transparent;
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+#options button img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+#options button text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Satisfy';
+    font-size: 30px;
+    color: antiquewhite;
+
+}
+#options #machine{
+    margin-bottom: -100%;
+}
+
+
