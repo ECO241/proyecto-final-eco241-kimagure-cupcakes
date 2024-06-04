@@ -75,6 +75,7 @@ const utilsDir = './utils';
 
 function loadScripts() {
     const scripts = [
+        'animations.js',
         'default.js',
         'start.js',
         'options.js',

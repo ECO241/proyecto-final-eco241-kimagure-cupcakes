@@ -1,14 +1,21 @@
+const updownAn = animations.updown();
+const leftrightAn = animations.leftright();
+const clickAn = animations.click();
+
 function renderIntructions(stateIns) {
     const intructionDiv = document.querySelector('.instruction');
     switch (stateIns) {
     case 'flavorIns':
         intructionDiv.innerHTML = '<h1>Mueve el joystick de arriba a abajo</h1> <h2>Para añadir la masa</h2>';
+        intructionDiv.appendChild(updownAn);
         break;
     case 'icingIns':
         intructionDiv.innerHTML = '<h1>Mueve el joystick de izquierda a derecha</h1> <h2>Para añadir el glaseado</h2>';
+        intructionDiv.appendChild(leftrightAn);
         break;
     case 'toppingIns':
         intructionDiv.innerHTML = '<h1>Presiona el joystick varias veces</h1> <h2>Para añadir el topping</h2>';
+        intructionDiv.appendChild(clickAn);
         break;
 
     default:
