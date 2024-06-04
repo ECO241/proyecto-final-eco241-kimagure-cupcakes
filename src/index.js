@@ -32,15 +32,17 @@ app.use(cors());
 
 app.use('/worker', express.static(`${__dirname}/../public/public-worker`));
 app.use('/client', express.static(`${__dirname}/../public/public-client`));
-app.use(express.static(path.join(__dirname, '/public-mobile')));
+app.use('/mobile', express.static(`${__dirname}/../public/public-mobile`));
 
 const orderRoute = require('./routes/orderRoute');
 const flavors = require('./routes/flavorsRoute');
 const orders = require('./routes/orderRoute');
+const couponRoute = require('./routes/couponRoute');
 
 app.use('/api', orderRoute);
 app.use('/flavors', flavors);
 app.use('/orders', orders);
+app.use('/coupon', couponRoute);
 
 // SOCKET ****************************************************
 
@@ -105,5 +107,5 @@ port.on('error', (err) => {
 // SERVER LISTEN ********************************************
 
 server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server running on ${PORT}`);
 });
