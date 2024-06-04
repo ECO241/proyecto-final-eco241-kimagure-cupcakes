@@ -1,9 +1,10 @@
 function renderFinish() {
-    const img = screenFinish.querySelector('#cupcakefinsh');
-    img.src = '';
+    screenFinish.appendChild(cupcakeImg);
+
+    socketFuntion.finishOrder(cupcake);
 
     setTimeout(() => {
         screenFinish.style.display = 'none';
         screenQr.style.display = 'block';
-    }, 10000);
+    }, 5000);
 }

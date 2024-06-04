@@ -11,3 +11,14 @@ body{
     filter: grayscale(100%);
 }
 
+#cupcakeImage {
+    display: flex;
+    position: relative;
+}
+
+#cupcakeImage img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
