@@ -38,8 +38,11 @@ async function renderOptions(actualState) {
     for (let i = 0; i < array.length; i += 1) {
         const button = document.createElement('button');
         const img = document.createElement('img');
+        const text = document.createElement('text');
         img.src = array[i].img;
+        text.textContent = array[i].flavor;
         button.appendChild(img);
+        button.appendChild(text);
         if (i !== actualOption) {
             button.classList.add('grayscale');
         }

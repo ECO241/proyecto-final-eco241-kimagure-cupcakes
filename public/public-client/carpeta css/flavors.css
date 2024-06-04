@@ -27,6 +27,16 @@
 #options button img {
     width: 200px;
     height: 200px;
+    margin-bottom: 20px;
+}
+#options button text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Satisfy';
+    font-size: 30px;
+    color: antiquewhite;
+
 }
 #options #machine{
     height: 600px;
