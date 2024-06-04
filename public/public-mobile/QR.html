@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+</head>
+<body>
+    <h1>QR Code for Coupon</h1>
+    <img id="qrCode" alt="QR Code">
+
+    <script>
+        fetch('http://localhost:3000/coupon/generate-QR')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('qrCode').src = data.qrCode;
+            })
+            .catch(error => console.error('Error fetching QR code:', error));
+    </script>
+</body>
+</html>
