@@ -2,6 +2,9 @@ let actualOption = 0;
 let array = [];
 let fullarray;
 
+const machineImg = document.querySelector('#machine');
+const cupcakeImg = document.querySelector('#cupcakeImage');
+
 organizeFlavors();
 
 async function organizeFlavors() {
@@ -11,6 +14,7 @@ async function organizeFlavors() {
         icing: flavors.filter((f) => f.type === 'icing'),
         topping: flavors.filter((f) => f.type === 'topping'),
     };
+    console.log(fullarray);
 }
 
 async function renderOptions(actualState) {
@@ -65,6 +69,7 @@ function optionsHandler(letter) {
 }
 
 function updateOption(array) {
+    updateCupcakeImage(array);
     cupcake[array[actualOption].type] = array[actualOption].flavor;
     socketFuntion.updateCupcake(cupcake);
 
@@ -73,4 +78,12 @@ function updateOption(array) {
     screenIntructions.style.display = 'block';
 
     return `${array[actualOption].type}Ins`;
+}
+
+function updateCupcakeImage(array) {
+    machineImg.src = 'https://github.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/blob/main/imagenes/machine2.png?raw=true';
+
+    const cupImg = document.createElement('img');
+    cupImg.src = array[actualOption].cupcake_img;
+    cupcakeImg.appendChild(cupImg);
 }
