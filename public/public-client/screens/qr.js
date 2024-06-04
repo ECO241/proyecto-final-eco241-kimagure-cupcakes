@@ -1,8 +1,12 @@
-function renderQR() {
-    fetch(`${PORT}/coupon/generate-QR`)
+function getQR() {
+    const qr = fetch(`${PORT}/coupon/generate-QR`)
         .then((response) => response.json())
-        .then((data) => {
-            document.getElementById('qr').src = data.qrCode;
-        })
+        .then((data) => data.qrCode)
         .catch((error) => console.error('Error fetching QR code:', error));
+    return qr;
+}
+
+async function renderQR() {
+    const qrImg = await getQR();
+    document.querySelector('#qrImg').src = qrImg;
 }
