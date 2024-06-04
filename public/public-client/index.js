@@ -1,6 +1,6 @@
-const PORT = 3000;
+const PORT = 'https://b143-186-168-96-243.ngrok-free.app';
 // eslint-disable-next-line no-undef
-const socket = io(`http://localhost:${PORT}`);
+const socket = io(PORT);
 
 const screenDefault = document.getElementById('default');
 const screenStart = document.getElementById('start');
@@ -77,6 +77,7 @@ function loadScripts() {
     const scripts = [
         'animations.js',
         'default.js',
+        'qr.js',
         'start.js',
         'options.js',
         'instructions.js',
