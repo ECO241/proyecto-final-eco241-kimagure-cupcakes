@@ -78,7 +78,6 @@ function loadScripts() {
         'animations.js',
         'default.js',
         'qr.js',
-        'start.js',
         'options.js',
         'instructions.js',
         'finish.js',

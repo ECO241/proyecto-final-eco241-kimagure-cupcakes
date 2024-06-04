@@ -63,17 +63,7 @@ io.on('connection', (socket) => {
         io.emit('finishorder', order);
         // io.emit('newOrder', order);  Emitir el evento al worker
         // Almacena los detalles del pedido en la tabla de Supabase
-    });
-
-    socket.on('newOrder', (order) => {
-        console.log('New order:', order);
-        // io.emit('newOrder', order);  Emitir el evento al worker
-        // Almacena los detalles del pedido en la tabla de Supabase
-        supabase
-            .from(tablename)
-            .insert(order)
-            .then(() => console.log('Order details inserted into Supabase table'))
-            .catch((error) => console.error('Error inserting order details into Supabase:', error.message));
+        // el post va en el worker !!!!!!!!!!
     });
 });
 

@@ -10,3 +10,7 @@ async function renderQR() {
     const qrImg = await getQR();
     document.querySelector('#qrImg').src = qrImg;
 }
+
+function startHandler(letter) {
+
+}

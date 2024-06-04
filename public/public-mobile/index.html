@@ -3,24 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="../../css/login.css">
-  <title>Cupón de descuento</title>
+  <title>Mobile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1784/1784096.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="./start.css">
+  <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <div id="from">
-    <section>
-        <img src="" alt="">
-        <div>
-            <h1>-30%</h1>
-            <p>Discount</p>
-            <p>Up to</p>
-        </div>
-        <br>
-        <div>
-        <div id="discount"></div>
-        <button>Buying now</button>
-        </div>
-    </section>
-</div>
+
+    <div id="start">
+        <section>
+            <div class="title">
+                <h1>Kimagure</h1>
+            </div>
+            <div class="start">
+                <input placeholder="Enter your Name" type="text" id="name" name="name">
+                <a>
+                <button type="button">Start Game</button>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div id="from" style="display: none;">
+        <section>
+            <img src="" alt="">
+            <div>
+                <h1>-30%</h1>
+                <p>Discount</p>
+                <p>Up to</p>
+            </div>
+            <br>
+            <div>
+            <div id="discount"></div>
+            <button>Buying now</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="coupon.js"></script>
+    <script src="start.js"></script>
 </body>
 </html>
