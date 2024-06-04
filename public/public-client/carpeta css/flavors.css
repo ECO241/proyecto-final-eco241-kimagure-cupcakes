@@ -31,3 +31,15 @@
 #options #machine{
     height: 600px;
 }
+
+#options #cupcakeImage {
+    display: flex;
+    position: relative;
+}
+
+#options #cupcakeImage img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
