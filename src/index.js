@@ -32,7 +32,7 @@ app.use(cors());
 
 app.use('/worker', express.static(`${__dirname}/../public/public-worker`));
 app.use('/client', express.static(`${__dirname}/../public/public-client`));
-app.use('/mobile', express.static(`${__dirname}/../public/public-mobile/coupon`));
+app.use('/mobile', express.static(`${__dirname}/../public/public-mobile`));
 
 const orderRoute = require('./routes/orderRoute');
 const flavors = require('./routes/flavorsRoute');
@@ -107,5 +107,5 @@ port.on('error', (err) => {
 // SERVER LISTEN ********************************************
 
 server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server running on ${PORT}`);
 });
