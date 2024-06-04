@@ -1,15 +1,17 @@
 .loader {
 	--color: white;
-	--size-mid: 6vmin;
-	--size-dot: 1.5vmin;
-	--size-bar: 0.4vmin;
-	--size-square: 3vmin;
+	--size-mid: 30vmin;
+	--size-dot: 7.5vmin;
+	--size-bar: 2vmin;
+	--size-square: 15vmin;
 
 	display: block;
 	position: relative;
 	width: 50%;
 	display: grid;
 	place-items: center;
+    margin-top: 150px;
+    align-items: center;
 }
 
 .loader::before,
@@ -28,7 +30,7 @@
 	height: var(--size-dot);
 	background-color: var(--color);
 	border-radius: 50%;
-	animation: loader-updown 1s ease-in-out infinite;
+	animation: loader-updown 2s ease-in-out infinite;
 }
 
 .loader.--updown::before {
@@ -55,7 +57,7 @@
 	height: var(--size-dot);
 	background-color: var(--color);
 	border-radius: 50%;
-    animation: loader-leftright 1s ease-in-out infinite;
+    animation: loader-leftright 2s ease-in-out infinite;
 }
 
 @keyframes loader-leftright {
@@ -111,7 +113,7 @@
 }
 
 .item	{
-	background: rgb(100, 100, 100);
+	background: transparent;
 	display: grid;
 	place-items: center;
 	border-radius: 4px;

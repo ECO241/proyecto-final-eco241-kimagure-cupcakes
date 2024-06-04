@@ -1,11 +1,3 @@
-body {
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
-}
 
 #instructions, #finish, #qr {
     margin: 0;
@@ -28,6 +20,7 @@ body {
     font-size: 100px;
     font-family: 'Satisfy';
     color: #fff;
+
 }
 
 #instructions h2, #finish h2, #qr h2 {
@@ -36,7 +29,12 @@ body {
     color: #fff;
 }
 
-#instructions img, #finish img, #qr img {
+#instructions img, #qr img {
     width: 400px;
     height: auto;
+}
+#finish img{
+    width: 450px;
+    height: auto;
+    margin-left: 35%;
 }
