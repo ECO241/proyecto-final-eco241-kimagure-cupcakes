@@ -1,6 +1,5 @@
 function renderFinish() {
-    const img = screenFinish.querySelector('#cupcakefinsh');
-    img.src = '';
+    screenFinish.appendChild(cupcakeImg);
 
     socketFuntion.finishOrder(cupcake);
 
