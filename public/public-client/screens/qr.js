@@ -12,13 +12,14 @@ async function renderQR() {
 }
 
 function startHandler(letter) {
-    return 'start';
 }
 
 socket.on('namefilled', (cupName) => {
+    console.log(state);
     cupcake.name = cupName;
     renderOptions('flavor');
     screenQr.style.display = 'none';
     screenOptions.style.display = 'block';
-    return 'flavor';
+
+    state = 'flavor';
 });
