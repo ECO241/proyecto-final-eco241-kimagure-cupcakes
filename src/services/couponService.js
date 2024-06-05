@@ -14,15 +14,41 @@ if (!supabaseUrl || !supabaseKey) {
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const couponService = {
-    saveQRCode: async (qrCodeDataURL) => {
+    saveQRCode: async (qrCode) => {
         try {
             const { data, error } = await supabase
                 .from('qr')
-                .insert([{ qr_code: qrCodeDataURL }]);
+                .insert([{ qr_code: qrCode }]);
 
             return { data, error };
         } catch (error) {
-            console.error('Error saving QR code to Supabase:', error.message);
+            console.error('Error saving QR code in Supabase:', error.message);
+            return { error };
+        }
+    },
+
+    saveCouponCode: async (discountCode) => {
+        try {
+            const { data, error } = await supabase
+                .from('coupons')
+                .insert([{ code: discountCode }]);
+
+            return { data, error };
+        } catch (error) {
+            console.error('Error saving coupon code in Supabase:', error.message);
+            return { error };
+        }
+    },
+
+    signUpUser: async (username, password, code) => {
+        try {
+            const { data, error } = await supabase
+                .from('coupons')
+                .insert([{ username, password, code }]);
+
+            return { data, error };
+        } catch (error) {
+            console.error('Error signing up user in Supabase:', error.message);
             return { error };
         }
     },
