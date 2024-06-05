@@ -9,6 +9,7 @@ const cors = require('cors');
 const { SerialPort, ReadlineParser } = require('serialport');
 const { createClient } = require('@supabase/supabase-js');
 const dotenv = require('dotenv');
+
 const orderService = require('./services/orderService');
 
 const app = express();

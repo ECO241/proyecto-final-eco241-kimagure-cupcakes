@@ -1,8 +1,2 @@
 /node_modules
-<<<<<<< HEAD
-/.env
-/wip_tests
-/src/models
-=======
 .env
->>>>>>> 4474310 (QR)

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="./css/carousel1.css">
+    <link rel="stylesheet" href="./css/carousel2.css">
+    <title>Main Page</title>
+</head>
+<body>
+    <nav>
+        <img id="Logo" src="https://wzjkgtjtumrfyienkajp.supabase.co/storage/v1/object/sign/General/Logo.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHZW5lcmFsL0xvZ28ucG5nIiwiaWF0IjoxNzE3NTU1OTY0LCJleHAiOjE3MjAxNDc5NjR9.DuWg4_ieME629Yq6dcC1Jac_gTiJT3iGbB8phUfTuxY&t=2024-06-05T02%3A52%3A41.144Z" alt="">
+        <img id= "menu" src="https://wzjkgtjtumrfyienkajp.supabase.co/storage/v1/object/sign/General/menu.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHZW5lcmFsL21lbnUucG5nIiwiaWF0IjoxNzE3NTU2MDA5LCJleHAiOjE3MjAxNDgwMDl9.1vJQHZXOc6d5EEcar6NExk1Pxd5r1m1TT4TtU_8GPXQ&t=2024-06-05T02%3A53%3A26.273Z" alt="">
+    </nav>
+    <section id="carousel">
+        <div>
+            <img src="https://wzjkgtjtumrfyienkajp.supabase.co/storage/v1/object/sign/General/Carousel.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHZW5lcmFsL0Nhcm91c2VsLmpwZyIsImlhdCI6MTcxNzU1OTgzNiwiZXhwIjoxNzIwMTUxODM2fQ.tQ5DqNykol-bGpKKsrpgaXWA8wLfFqbuxfzQFDPzSD0&t=2024-06-05T03%3A57%3A13.254Z" alt="Imagen 1">
+            <h3>Título 1</h3>
+            <p>Descripción 1</p>
+        </div>
+        <div>
+            <img src="https://wzjkgtjtumrfyienkajp.supabase.co/storage/v1/object/sign/General/Carousel2.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHZW5lcmFsL0Nhcm91c2VsMi5qcGciLCJpYXQiOjE3MTc1NTk4NTQsImV4cCI6MTcyMDE1MTg1NH0.WEUvxFnCYq317Ono3DDaEnqvodHhG0FoH36MfxXIr3E&t=2024-06-05T03%3A57%3A31.051Z" alt="Imagen 2">
+            <h3>Título 1</h3>
+            <p>Descripción 1</p>
+        </div>
+        <div>
+            <img src="https://wzjkgtjtumrfyienkajp.supabase.co/storage/v1/object/sign/General/Carousel3.jpg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHZW5lcmFsL0Nhcm91c2VsMy5qcGciLCJpYXQiOjE3MTc1NTk4NzQsImV4cCI6MTcyMDE1MTg3NH0.VvtNXnN-35dIuhLSzpOcY44ocvqisBbswMJuC8B27cY&t=2024-06-05T03%3A57%3A50.982Z" alt="Imagen 3">
+            <h3>Título 1</h3>
+            <p>Descripción 1</p>
+        </div>
+    </section>
+    <section id="products">
+        <h3>NEW PRODUCTS</h3>
+        <p>Explore new delights with every bite! Discover our irresistible cupcake flavors.</p>
+        <div id="carousel2"></div>
+    </section>
+    <section id="special">
+        <img src="https://wzjkgtjtumrfyienkajp.supabase.co/storage/v1/object/sign/General/hbs_home_page.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHZW5lcmFsL2hic19ob21lX3BhZ2UucG5nIiwiaWF0IjoxNzE3NjEzNTIzLCJleHAiOjE3MjAyMDU1MjN9.S1RHkr8upC2UeFsBrOOJTRnlWpA3nKCbGlFyPFV5Ots&t=2024-06-05T18%3A51%3A59.978Z" alt="">
+        <h2>A BRAND THAT PROMISES QUALITY</h2>
+        <p>For your health and well-being, we have the vision to improve every day.</p>
+        <button>Start buying now</button>
+    </section>
+    <section id="best">
+        <h3>BEST OF KIMAGURE</h3>
+        <p>Explore the best flavors rated by others and get a taste for yourself.</p>
+        <div id="carousel3"></div>
+    </section>
+    <section id="trends">
+        <h3>TRENDS OF KIMAGURE</h3>
+        <p>Explore the flavors most purchased by others and get a taste for yourself.</p>
+        <div id="carousel4"></div>
+    </section>
+    <section id="coupon">
+        <h2>Remember you have a discount coupon</h2>
+        <p id="code_coupon"></p>
+    </section>
+    <section id="footer"></section>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

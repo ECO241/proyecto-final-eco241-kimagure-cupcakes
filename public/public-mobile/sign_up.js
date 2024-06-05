@@ -1,8 +1,9 @@
-document.getElementById('signUpForm').addEventListener('submit', (event) => {
+document.getElementById('signupForm').addEventListener('submit', (event) => {
     event.preventDefault();
-
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+
+    // Obtener el código de descuento generado previamente de la página anterior
     const discountCode = localStorage.getItem('discountCode');
 
     fetch('/coupon/sign-up', {
@@ -10,21 +11,14 @@ document.getElementById('signUpForm').addEventListener('submit', (event) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password, code: discountCode }),
+        body: JSON.stringify({ username, password, discountCode }),
     })
         .then((response) => response.json())
         .then((data) => {
-            console.log('User signed up:', data);
-            // eslint-disable-next-line no-alert
-            alert('Sign up successful!');
+            if (data.message) {
+                console.log(data.message);
+                window.location.href = '/mobile/main.html';
+            }
         })
-        .catch((error) => console.error('Error signing up:', error));
+        .catch((error) => console.error('Error signing up user:', error));
 });
-
-// Fetch and store discount code if available
-fetch('/coupon/generate-discount-code')
-    .then((response) => response.json())
-    .then((data) => {
-        localStorage.setItem('discountCode', data.discountCode);
-    })
-    .catch((error) => console.error('Error fetching discount code:', error));

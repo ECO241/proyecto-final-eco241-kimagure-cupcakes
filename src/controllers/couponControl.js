@@ -53,6 +53,17 @@ const couponController = {
         }
     },
 
+    getCouponCode: async (req, res) => {
+        const { userId } = req.query; // Obtener el userId de la consulta
+
+        try {
+            const coupon = await couponService.getCouponByUserId(userId);
+            res.json({ couponCode: coupon.code });
+        } catch (error) {
+            res.status(500).json({ error: 'Error fetching coupon code' });
+        }
+    },
+
     generateDiscountCode: async (req, res) => {
         try {
             const discountCode = generateRandomCode();
@@ -60,6 +71,43 @@ const couponController = {
         } catch (error) {
             console.error('Error generating discount code:', error.message);
             res.status(500).send('Error generating discount code');
+        }
+    },
+
+    getCarouselData: async (req, res) => {
+        try {
+            const { data, error } = await couponService.getCarouselData();
+            if (error) {
+                throw new Error(error.message);
+            }
+            res.status(200).json(data);
+        } catch (error) {
+            console.error('Error fetching carousel data:', error.message);
+            res.status(500).send('Error fetching carousel data');
+        }
+    },
+    getCarouselData2: async (req, res) => {
+        try {
+            const { data, error } = await couponService.getCarouselData2();
+            if (error) {
+                throw new Error(error.message);
+            }
+            res.status(200).json(data);
+        } catch (error) {
+            console.error('Error fetching carousel data:', error.message);
+            res.status(500).send('Error fetching carousel data');
+        }
+    },
+    getCarouselData3: async (req, res) => {
+        try {
+            const { data, error } = await couponService.getCarouselData3();
+            if (error) {
+                throw new Error(error.message);
+            }
+            res.status(200).json(data);
+        } catch (error) {
+            console.error('Error fetching carousel data:', error.message);
+            res.status(500).send('Error fetching carousel data');
         }
     },
 };

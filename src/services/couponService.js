@@ -40,6 +40,25 @@ const couponService = {
         }
     },
 
+    getCouponByUserId: async (userId) => {
+        try {
+            const { data, error } = await supabase
+                .from('coupons')
+                .select('code')
+                .eq('id', userId)
+                .single();
+
+            if (error) {
+                throw error;
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Error fetching coupon code:', error);
+            throw error;
+        }
+    },
+
     signUpUser: async (username, password, code) => {
         try {
             const { data, error } = await supabase
@@ -49,6 +68,42 @@ const couponService = {
             return { data, error };
         } catch (error) {
             console.error('Error signing up user in Supabase:', error.message);
+            return { error };
+        }
+    },
+    getCarouselData: async () => {
+        try {
+            const { data, error } = await supabase
+                .from('carousel')
+                .select('image, name, short_description, price');
+
+            return { data, error };
+        } catch (error) {
+            console.error('Error fetching carousel data from Supabase:', error.message);
+            return { error };
+        }
+    },
+    getCarouselData2: async () => {
+        try {
+            const { data, error } = await supabase
+                .from('second_carousel')
+                .select('image, name, short_description, price');
+
+            return { data, error };
+        } catch (error) {
+            console.error('Error fetching carousel data from Supabase:', error.message);
+            return { error };
+        }
+    },
+    getCarouselData3: async () => {
+        try {
+            const { data, error } = await supabase
+                .from('third_carousel')
+                .select('image, name, short_description, price');
+
+            return { data, error };
+        } catch (error) {
+            console.error('Error fetching carousel data from Supabase:', error.message);
             return { error };
         }
     },
