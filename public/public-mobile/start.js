@@ -26,3 +26,8 @@ nameBtn.addEventListener('click', () => {
     screenStart.style.display = 'none';
     screenWaiting.style.display = 'block';
 });
+
+socket.on('finishorder', (cup) => {
+    screenWaiting.style.display = 'none';
+    screenFrom.style.display = 'block';
+});
