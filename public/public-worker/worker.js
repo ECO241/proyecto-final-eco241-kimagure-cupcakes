@@ -15,6 +15,7 @@ updateOptions(cupcake);
 socket.on('update', (cupcake) => {
     updateOptions(cupcake);
 });
+});
 
 function updateOptions(cupcake) {
     order.innerHTML = `

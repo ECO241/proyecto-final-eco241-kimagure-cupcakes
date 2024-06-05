@@ -61,6 +61,7 @@ function displayOptions() {
     finishbtn.textContent = 'Finish';
     options.appendChild(finishbtn);
 
+
     finishbtn.addEventListener('click', () => {
         options.style.display = 'none';
         qr.style.display = 'block';
