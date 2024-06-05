@@ -8,7 +8,8 @@ const cupcakeImg = document.querySelector('#cupcakeImage');
 organizeFlavors();
 
 async function organizeFlavors() {
-    const flavors = await fetch('http://localhost:3000/flavors').then((res) => res.json()).catch((err) => console.log(err));
+    const flavors = await fetchFunctions.getFlavors();
+    console.log(flavors);
     fullarray = {
         flavor: flavors.filter((f) => f.type === 'flavor'),
         icing: flavors.filter((f) => f.type === 'icing'),

@@ -84,6 +84,7 @@ function loadScripts() {
 
     const utils = [
         'socket.js',
+        'fetch.js',
     ];
 
     utils.forEach((util) => {
