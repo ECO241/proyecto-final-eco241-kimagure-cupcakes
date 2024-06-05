@@ -1,9 +1,10 @@
-const updownAn = animations.updown();
-const leftrightAn = animations.leftright();
-const clickAn = animations.click();
-
 function renderIntructions(stateIns) {
+    const updownAn = animations.updown();
+    const leftrightAn = animations.leftright();
+    const clickAn = animations.click();
+
     const intructionDiv = document.querySelector('.instruction');
+
     switch (stateIns) {
     case 'flavorIns':
         intructionDiv.innerHTML = '<h1>Mueve el joystick de arriba a abajo</h1> <h2>Para añadir la masa</h2>';

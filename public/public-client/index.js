@@ -1,9 +1,8 @@
-const PORT = 3000;
+const PORT = 'https://b143-186-168-96-243.ngrok-free.app';
 // eslint-disable-next-line no-undef
-const socket = io(`http://localhost:${PORT}`);
+const socket = io(PORT);
 
 const screenDefault = document.getElementById('default');
-const screenStart = document.getElementById('start');
 const screenOptions = document.getElementById('options');
 const screenSelected = document.getElementById('optionselected');
 const screenIntructions = document.getElementById('instructions');
@@ -19,10 +18,10 @@ socket.on('move', (move) => {
 let state = 'default';
 
 const cupcake = {
-    name: 'Pending...',
-    flavor: 'Pending...',
-    icing: 'Pending...',
-    topping: 'Pending...',
+    name: 'Name pending...',
+    flavor: '',
+    icing: '',
+    topping: '',
 };
 
 function checkState(letter) {
@@ -77,7 +76,7 @@ function loadScripts() {
     const scripts = [
         'animations.js',
         'default.js',
-        'start.js',
+        'qr.js',
         'options.js',
         'instructions.js',
         'finish.js',

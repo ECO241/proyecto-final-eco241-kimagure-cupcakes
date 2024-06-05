@@ -4,7 +4,7 @@ const order = document.querySelector('.order');
 const history = document.querySelector('.history');
 
 const cupcake = {
-    name: 'Nombre pendiente...',
+    name: 'Name pending...',
     flavor: '',
     icing: '',
     topping: '',

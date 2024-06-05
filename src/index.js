@@ -32,15 +32,17 @@ app.use(cors());
 
 app.use('/worker', express.static(`${__dirname}/../public/public-worker`));
 app.use('/client', express.static(`${__dirname}/../public/public-client`));
-app.use(express.static(path.join(__dirname, '/public-mobile')));
+app.use('/mobile', express.static(`${__dirname}/../public/public-mobile`));
 
 const orderRoute = require('./routes/orderRoute');
 const flavors = require('./routes/flavorsRoute');
 const orders = require('./routes/orderRoute');
+const couponRoute = require('./routes/couponRoute');
 
 app.use('/api', orderRoute);
 app.use('/flavors', flavors);
 app.use('/orders', orders);
+app.use('/coupon', couponRoute);
 
 // SOCKET ****************************************************
 
@@ -57,21 +59,15 @@ io.on('connection', (socket) => {
         io.emit('update', cupcake);
     });
 
+    socket.on('namefilled', (name) => {
+        io.emit('namefilled', name);
+    });
+
     socket.on('finishorder', (order) => {
         io.emit('finishorder', order);
         // io.emit('newOrder', order);  Emitir el evento al worker
         // Almacena los detalles del pedido en la tabla de Supabase
-    });
-
-    socket.on('newOrder', (order) => {
-        console.log('New order:', order);
-        // io.emit('newOrder', order);  Emitir el evento al worker
-        // Almacena los detalles del pedido en la tabla de Supabase
-        supabase
-            .from(tablename)
-            .insert(order)
-            .then(() => console.log('Order details inserted into Supabase table'))
-            .catch((error) => console.error('Error inserting order details into Supabase:', error.message));
+        // el post va en el worker !!!!!!!!!!
     });
 });
 
@@ -105,5 +101,5 @@ port.on('error', (err) => {
 // SERVER LISTEN ********************************************
 
 server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+    console.log(`Server running on ${PORT}`);
 });

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1784/1784096.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="./start.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+    <div id="start">
+        <section>
+            <div class="title">
+                <h1>Kimagure</h1>
+            </div>
+            <div class="start">
+                <input placeholder="Enter your Name" type="text" id="name" name="name">
+                <a>
+                <button type="button" id="nameBtn">Start Game</button>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <div id="waiting" style="display: none;">
+        <h1>Great!</h1>
+        <p>Now continue the game</p>
+    </div>
+
+    <div id="from" style="display: none;">
+        <section>
+            <img src="" alt="">
+            <div>
+                <h1>-30%</h1>
+                <p>Discount</p>
+                <p>Up to</p>
+            </div>
+            <br>
+            <div>
+            <div id="discount"></div>
+            <button>Buying now</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="./utils/socket.js"></script>
+    <script src="coupon.js"></script>
+    <script src="start.js"></script>
+</body>
+</html>
