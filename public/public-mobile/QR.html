@@ -10,7 +10,7 @@
     <img id="qrCode" alt="QR Code">
 
     <script>
-        fetch('/coupon/generate-QR')
+        fetch('http://localhost:3000/coupon/generate-QR')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('qrCode').src = data.qrCode;

@@ -23,8 +23,8 @@ const couponController = {
 
     saveCoupon: async (req, res) => {
         try {
-            const { discountCode } = req.body;
-            const result = await couponService.saveCouponCode(discountCode);
+            const { couponCode } = req.body;
+            const result = await couponService.saveCoupon(couponCode);
 
             if (result.error) {
                 throw new Error(result.error.message);
@@ -34,43 +34,6 @@ const couponController = {
         } catch (error) {
             console.error('Error saving coupon:', error.message);
             res.status(500).send('Error saving coupon');
-        }
-    },
-
-    signUp: async (req, res) => {
-        try {
-            const { username, password, code } = req.body;
-            const result = await couponService.signUpUser(username, password, code);
-
-            if (result.error) {
-                throw new Error(result.error.message);
-            }
-
-            res.status(200).json({ message: 'User signed up successfully' });
-        } catch (error) {
-            console.error('Error signing up user:', error.message);
-            res.status(500).send('Error signing up user');
-        }
-    },
-
-    getCouponCode: async (req, res) => {
-        const { userId } = req.query; // Obtener el userId de la consulta
-
-        try {
-            const coupon = await couponService.getCouponByUserId(userId);
-            res.json({ couponCode: coupon.code });
-        } catch (error) {
-            res.status(500).json({ error: 'Error fetching coupon code' });
-        }
-    },
-
-    generateDiscountCode: async (req, res) => {
-        try {
-            const discountCode = generateRandomCode();
-            res.status(200).json({ discountCode });
-        } catch (error) {
-            console.error('Error generating discount code:', error.message);
-            res.status(500).send('Error generating discount code');
         }
     },
 
@@ -111,24 +74,5 @@ const couponController = {
         }
     },
 };
-
-function generateRandomCode() {
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    const numbers = '0123456789';
-
-    let randomLetters = '';
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 3; i++) {
-        randomLetters += letters.charAt(Math.floor(Math.random() * letters.length));
-    }
-
-    let randomNumbers = '';
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 3; i++) {
-        randomNumbers += numbers.charAt(Math.floor(Math.random() * numbers.length));
-    }
-
-    return `${randomLetters}-${randomNumbers}`;
-}
 
 module.exports = couponController;

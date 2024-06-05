@@ -27,50 +27,20 @@ const couponService = {
         }
     },
 
-    saveCouponCode: async (discountCode) => {
+    saveCoupon: async (couponCode) => {
         try {
             const { data, error } = await supabase
                 .from('coupons')
-                .insert([{ code: discountCode }]);
+                // eslint-disable-next-line max-len
+                .insert([{ code: couponCode }]); // Asegúrate de usar 'code' en lugar de 'coupon_code'
 
             return { data, error };
         } catch (error) {
-            console.error('Error saving coupon code in Supabase:', error.message);
+            console.error('Error saving coupon in Supabase:', error.message);
             return { error };
         }
     },
 
-    getCouponByUserId: async (userId) => {
-        try {
-            const { data, error } = await supabase
-                .from('coupons')
-                .select('code')
-                .eq('id', userId)
-                .single();
-
-            if (error) {
-                throw error;
-            }
-
-            return data;
-        } catch (error) {
-            console.error('Error fetching coupon code:', error);
-            throw error;
-        }
-    },
-
-    signUpUser: async (username, password, code) => {
-        try {
-            const { data, error } = await supabase
-                .from('coupons')
-                .insert([{ username, password, code }]);
-
-            return { data, error };
-        } catch (error) {
-            console.error('Error signing up user in Supabase:', error.message);
-            return { error };
-        }
-    },
     getCarouselData: async () => {
         try {
             const { data, error } = await supabase
@@ -83,6 +53,7 @@ const couponService = {
             return { error };
         }
     },
+
     getCarouselData2: async () => {
         try {
             const { data, error } = await supabase
@@ -95,6 +66,7 @@ const couponService = {
             return { error };
         }
     },
+
     getCarouselData3: async () => {
         try {
             const { data, error } = await supabase

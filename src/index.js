@@ -39,11 +39,13 @@ const orderRoute = require('./routes/orderRoute');
 const flavors = require('./routes/flavorsRoute');
 const orders = require('./routes/orderRoute');
 const couponRoute = require('./routes/couponRoute');
+const authRoute = require('./routes/authRoute');
 
 app.use('/api', orderRoute);
 app.use('/flavors', flavors);
 app.use('/orders', orders);
 app.use('/coupon', couponRoute);
+app.use('/auth', authRoute);
 
 // SOCKET ****************************************************
 
