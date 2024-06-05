@@ -19,9 +19,9 @@ socket.on('update', (cupcake) => {
 function updateOptions(cupcake) {
     order.innerHTML = `
         <p><b>${cupcake.name}</b></p>
-        <p>Masa: ${cupcake.flavor}</p>
-        <p>Cobertura: ${cupcake.icing}</p>
-        <p>Decoración: ${cupcake.topping}</p>`;
+        <p>Flavor: ${cupcake.flavor}</p>
+        <p>Icing: ${cupcake.icing}</p>
+        <p>Topping: ${cupcake.topping}</p>`;
 }
 
 socket.on('finishorder', (cup) => {
