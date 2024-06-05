@@ -7,15 +7,15 @@ function renderIntructions(stateIns) {
 
     switch (stateIns) {
     case 'flavorIns':
-        intructionDiv.innerHTML = '<h1>Mueve el joystick de arriba a abajo</h1> <h2>Para añadir la masa</h2>';
+        intructionDiv.innerHTML = '<h1>Move the joystick up and down</h1> <h2>to add the batter</h2>';
         intructionDiv.appendChild(updownAn);
         break;
     case 'icingIns':
-        intructionDiv.innerHTML = '<h1>Mueve el joystick de izquierda a derecha</h1> <h2>Para añadir el glaseado</h2>';
+        intructionDiv.innerHTML = '<h1>Move the joystick left and right</h1> <h2>to add the icing</h2>';
         intructionDiv.appendChild(leftrightAn);
         break;
     case 'toppingIns':
-        intructionDiv.innerHTML = '<h1>Presiona el joystick varias veces</h1> <h2>Para añadir el topping</h2>';
+        intructionDiv.innerHTML = '<h1>Press the joystick</h1> <h2>to add the topping</h2>';
         intructionDiv.appendChild(clickAn);
         break;
 
@@ -56,7 +56,7 @@ function instructionsHandler(letter, actualState) {
 
 function instructionsDone(nextState) {
     console.log(array);
-    const textOptions = ['Yummy!', 'Delicioso!', 'Genial!'];
+    const textOptions = ['Yummy!', 'Delicious!', 'Fantastic!'];
     screenSelected.innerHTML = '';
     const img = document.createElement('img');
     img.src = array[actualOption].img;

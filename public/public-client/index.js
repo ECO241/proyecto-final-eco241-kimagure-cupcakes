@@ -1,4 +1,4 @@
-const PORT = 'https://b143-186-168-96-243.ngrok-free.app';
+const PORT = 'https://0e4f-186-168-96-243.ngrok-free.app';
 // eslint-disable-next-line no-undef
 const socket = io(PORT);
 
@@ -84,6 +84,7 @@ function loadScripts() {
 
     const utils = [
         'socket.js',
+        'fetch.js',
     ];
 
     utils.forEach((util) => {

@@ -1,3 +1,4 @@
+const PORT = 'https://0e4f-186-168-96-243.ngrok-free.app';
 const socket = io();
 
 const order = document.querySelector('.order');
@@ -19,13 +20,13 @@ socket.on('update', (cupcake) => {
 function updateOptions(cupcake) {
     order.innerHTML = `
         <p><b>${cupcake.name}</b></p>
-        <p>Masa: ${cupcake.flavor}</p>
-        <p>Cobertura: ${cupcake.icing}</p>
-        <p>Decoración: ${cupcake.topping}</p>`;
+        <p>Flavor: ${cupcake.flavor}</p>
+        <p>Icing: ${cupcake.icing}</p>
+        <p>Topping: ${cupcake.topping}</p>`;
 }
 
 socket.on('finishorder', (cup) => {
-    // ACÁ CÓDIGO DEL UTILS DEL SUPABASE PA ENVIAR ESA ORDEN
+    fetchFunctions.createOrder(cup);
     updateOptions(cupcake);
 
     const cupDiv = document.createElement('div');
