@@ -20,7 +20,8 @@
     border: none;
     padding: 0;
     background: transparent;
-    margin-top: 350px;
+    margin-top: 300px;
+    margin-left: 90%;
 }
 #default button img {
     width: 120px;
