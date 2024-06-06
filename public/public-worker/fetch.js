@@ -38,11 +38,11 @@ const fetchFunctions = {
 
     getOrders: async () => {
         try {
-            const response = await fetch(`${PORT}/flavors`);
-            const flavors = await response.json();
-            return flavors;
+            const response = await fetch(`${PORT}/orders`);
+            const orders = await response.json();
+            return orders;
         } catch (err) {
-            console.error('Error fetching flavors:', err);
+            console.error('Error fetching orders:', err);
             throw err;
         }
     },

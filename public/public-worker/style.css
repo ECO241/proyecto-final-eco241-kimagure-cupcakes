@@ -2,10 +2,28 @@ body{
     font-family: 'Poppins';
     display: flex;
     justify-content: space-evenly;
+    background-image: url('https://github.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/blob/main/imagenes/backgroundflavors.png?raw=true');
+    background-size: cover;
+    color: white;
 }
 
-.history div{
-    background-color: lightgray;
-    padding: 10px;
+p{
+    margin: 8px;
+}
+
+.history{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.history div , .order div{
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    background-color: rgba(255, 255, 255, 0.361);
+    color: rgb(40, 14, 39);
+    padding: 16px;
     border-radius: 14px;
 }
