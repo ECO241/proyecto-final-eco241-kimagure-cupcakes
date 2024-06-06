@@ -4,7 +4,7 @@ const couponService = require('../services/couponService');
 const couponController = {
     generateQR: async (req, res) => {
         try {
-            const couponUrl = `${req.protocol}://${req.get('host')}/mobile/coupon.html`;
+            const couponUrl = `${req.protocol}://${req.get('host')}/mobile/screens/coupon.html`;
             const qrCode = await QRCode.toDataURL(couponUrl);
 
             // Guardar el QR code en Supabase
