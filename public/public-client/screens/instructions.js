@@ -24,28 +24,41 @@ function renderIntructions(stateIns) {
     }
 }
 
-const lastKeys = [];
+let insCounter = 0;
+let insDirection = '';
 
 function instructionsHandler(letter, actualState) {
-    lastKeys.push(letter);
-
     switch (actualState) {
     case 'flavorIns':
-        if (lastKeys.slice(-3).join('') === 'wsw') {
-            instructionsDone('icing');
-            return 'icing';
+        if (letter !== insDirection && (letter === 'w' || letter === 's')) {
+            insDirection = letter;
+            insCounter += 1;
+            if (insCounter > 2) {
+                insCounter = 0;
+                instructionsDone('icing');
+                return 'icing';
+            }
         }
         return 'flavorIns';
     case 'icingIns':
-        if (lastKeys.slice(-3).join('') === 'ada') {
-            instructionsDone('topping');
-            return 'topping';
+        if (letter !== insDirection && (letter === 'a' || letter === 'd')) {
+            insDirection = letter;
+            insCounter += 1;
+            if (insCounter > 2) {
+                insCounter = 0;
+                instructionsDone('topping');
+                return 'topping';
+            }
         }
         return 'icingIns';
     case 'toppingIns':
-        if (lastKeys.slice(-5).join('') === 'zzzzz') {
-            instructionsDone('finish');
-            return 'finish';
+        if (letter === 'z') {
+            insCounter += 1;
+            if (insCounter > 3) {
+                insCounter = 0;
+                instructionsDone('finish');
+                return 'finish';
+            }
         }
         return 'toppingIns';
     default:
