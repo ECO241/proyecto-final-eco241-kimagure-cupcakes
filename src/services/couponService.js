@@ -27,20 +27,6 @@ const couponService = {
         }
     },
 
-    saveCoupon: async (couponCode) => {
-        try {
-            const { data, error } = await supabase
-                .from('coupons')
-                // eslint-disable-next-line max-len
-                .insert([{ code: couponCode }]); // Asegúrate de usar 'code' en lugar de 'coupon_code'
-
-            return { data, error };
-        } catch (error) {
-            console.error('Error saving coupon in Supabase:', error.message);
-            return { error };
-        }
-    },
-
     getCarouselData: async () => {
         try {
             const { data, error } = await supabase

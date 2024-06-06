@@ -1,34 +1,50 @@
-/* eslint-disable max-len */
+/* eslint-disable consistent-return */
 const authService = require('../services/authService');
 
 const authController = {
     signUp: async (req, res) => {
+        const { email, password, code } = req.body;
+
+        if (!email || !password || !code) {
+            return res.status(400).json({ message: 'Email, password, and code are required.' });
+        }
+
+        if (email.length > 255) {
+            return res.status(400).json({ message: 'Email is too long.' });
+        }
+
+        if (password.length < 8) {
+            return res.status(400).json({ message: 'Password must be at least 8 characters long.' });
+        }
+
         try {
-            const { email, password, discountCode } = req.body;
-
-            if (!email || !password) {
-                throw new Error('Email and password are required.');
+            const { data, error } = await authService.signUp(email, password, code);
+            if (error) {
+                throw new Error(error.message);
             }
-
-            // Registramos al usuario en el autenticador de Supabase
-            const userResult = await authService.signUp(email, password);
-
-            if (userResult.error) {
-                throw new Error(userResult.error.message);
-            }
-
-            // Guardar el código de descuento en la tabla coupons
-            if (discountCode) {
-                const couponResult = await authService.saveCouponCode(discountCode, email, password);
-                if (couponResult.error) {
-                    throw new Error(couponResult.error.message);
-                }
-            }
-
-            res.status(200).json({ message: 'Sign up successful! Please check your email to confirm your account.' });
+            res.status(200).json(data);
         } catch (error) {
             console.error('Error signing up:', error.message);
-            res.status(500).json({ error: error.message });
+            res.status(500).json({ message: 'Error signing up' });
+        }
+    },
+
+    checkEmail: async (req, res) => {
+        const { email } = req.query;
+
+        try {
+            const { data, error } = await authService.checkEmail(email);
+            if (error) {
+                throw new Error(error.message);
+            }
+
+            if (data.length > 0) {
+                return res.status(200).json({ exists: true });
+            }
+            return res.status(200).json({ exists: false });
+        } catch (error) {
+            console.error('Error checking email:', error.message);
+            res.status(500).json({ message: 'Error checking email' });
         }
     },
 };

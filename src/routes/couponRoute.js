@@ -6,9 +6,6 @@ const couponController = require('../controllers/couponControl');
 // Endpoint para generar el código QR
 router.get('/generate-qr', couponController.generateQR);
 
-// Endpoint para guardar el cupón
-router.post('/save-coupon', couponController.saveCoupon);
-
 // Endpoint para obtener los datos del carrusel
 router.get('/carousel', couponController.getCarouselData);
 

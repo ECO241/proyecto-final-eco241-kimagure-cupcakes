@@ -1,56 +1,37 @@
 /* eslint-disable no-plusplus */
-/* eslint-disable no-alert */
-// Función para generar un cupón aleatorio en el formato ABC-123
-function generateCoupon() {
+// Función para generar una cadena aleatoria de 3 letras
+function generateRandomLetters() {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let result = '';
+    for (let i = 0; i < 3; i++) {
+        result += letters.charAt(Math.floor(Math.random() * letters.length));
+    }
+    return result;
+}
+
+// Función para generar una cadena aleatoria de 3 números
+function generateRandomNumbers() {
     const numbers = '0123456789';
-
-    // Generar 3 letras aleatorias
-    let randomLetters = '';
+    let result = '';
     for (let i = 0; i < 3; i++) {
-        randomLetters += letters.charAt(Math.floor(Math.random() * letters.length));
+        result += numbers.charAt(Math.floor(Math.random() * numbers.length));
     }
-
-    // Generar 3 números aleatorios
-    let randomNumbers = '';
-    for (let i = 0; i < 3; i++) {
-        randomNumbers += numbers.charAt(Math.floor(Math.random() * numbers.length));
-    }
-
-    // Formato final del cupón
-    return `${randomLetters}-${randomNumbers}`;
+    return result;
 }
 
-// Asignar el cupón generado al elemento con id "discount"
-document.addEventListener('DOMContentLoaded', (event) => {
-    const discountElement = document.getElementById('discount');
-    const couponCode = generateCoupon();
-    discountElement.textContent = couponCode;
+// Función para generar el cupón
+function generateCoupon() {
+    const letters = generateRandomLetters();
+    const numbers = generateRandomNumbers();
+    return `${letters}-${numbers}`;
+}
 
-    // Agregar evento de clic al botón "Buying now"
-    const buyNowButton = document.getElementById('buyNowButton');
-    buyNowButton.addEventListener('click', () => {
-        saveCoupon(couponCode);
-    });
+// Mostrar el cupón en el div #discount
+const couponCode = generateCoupon();
+document.getElementById('discount').innerText = couponCode;
+
+// Guardar el cupón en el almacenamiento local y redirigir al usuario al archivo sign_up.html
+document.getElementById('buyNowButton').addEventListener('click', () => {
+    localStorage.setItem('couponCode', couponCode);
+    window.location.href = 'sign_up.html';
 });
-
-// Función para guardar el cupón en Supabase
-async function saveCoupon(couponCode) {
-    try {
-        const response = await fetch('/coupon/save-coupon', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ couponCode }),
-        });
-
-        if (response.ok) {
-            window.location.href = 'sign_up.html'; // Redirigir a sing_up.html después de guardar el cupón
-        } else {
-            alert('Failed to save coupon.');
-        }
-    } catch (error) {
-        console.error('Error saving coupon:', error);
-    }
-}

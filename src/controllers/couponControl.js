@@ -21,22 +21,6 @@ const couponController = {
         }
     },
 
-    saveCoupon: async (req, res) => {
-        try {
-            const { couponCode } = req.body;
-            const result = await couponService.saveCoupon(couponCode);
-
-            if (result.error) {
-                throw new Error(result.error.message);
-            }
-
-            res.status(200).json({ message: 'Coupon saved successfully' });
-        } catch (error) {
-            console.error('Error saving coupon:', error.message);
-            res.status(500).send('Error saving coupon');
-        }
-    },
-
     getCarouselData: async (req, res) => {
         try {
             const { data, error } = await couponService.getCarouselData();

@@ -18,7 +18,7 @@ $(document).ready(() => {
     // Obtén los datos de la API y genera el HTML dinámico
     async function loadCarousel() {
         try {
-            const response = await fetch('/coupon/carousel');
+            const response = await fetch('http://localhost:3000/coupon/carousel');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -59,7 +59,7 @@ $(document).ready(() => {
     // Obtén los datos de la API y genera el HTML dinámico
     async function loadCarousel2() {
         try {
-            const response = await fetch('/coupon/carousel2');
+            const response = await fetch('http://localhost:3000/coupon/carousel2');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -100,7 +100,7 @@ $(document).ready(() => {
     // Obtén los datos de la API y genera el HTML dinámico
     async function loadCarousel3() {
         try {
-            const response = await fetch('/coupon/carousel3');
+            const response = await fetch('http://localhost:3000/coupon/carousel3');
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -138,3 +138,25 @@ $(document).ready(() => {
     // Carga los datos para el segundo carrusel
     loadCarousel3();
 });
+
+// Función para obtener el valor de un parámetro de la URL
+function getParameterByName(name) {
+    const url = window.location.href;
+    // eslint-disable-next-line no-param-reassign
+    name = name.replace(/[[\]]/g, '\\$&');
+    const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`);
+    const results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+// Obtener el código del cupón de la URL
+const couponCode = getParameterByName('couponCode');
+
+// Mostrar el código del cupón en el div correspondiente
+if (couponCode) {
+    document.getElementById('code_coupon').innerText = `Your coupon code is: ${couponCode}`;
+} else {
+    document.getElementById('code_coupon').innerText = 'No coupon code found.';
+}

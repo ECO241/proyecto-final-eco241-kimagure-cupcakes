@@ -14,27 +14,29 @@ if (!supabaseUrl || !supabaseKey) {
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const authService = {
-    signUp: async (email, password) => {
-        try {
-            const { user, error } = await supabase.auth.signUp({
-                email,
-                password,
-            });
-
-            return { user, error };
-        } catch (error) {
-            console.error('Error signing up:', error.message);
-            return { error };
-        }
-    },
-    saveCouponCode: async (code, email, password) => {
+    signUp: async (email, password, code) => {
         try {
             const { data, error } = await supabase
                 .from('coupons')
-                .insert([{ code, email, password }]);
+                .insert([{ email, password, code }]);
+
             return { data, error };
         } catch (error) {
-            console.error('Error saving coupon code:', error.message);
+            console.error('Error signing up with Supabase:', error.message);
+            return { error };
+        }
+    },
+
+    checkEmail: async (email) => {
+        try {
+            const { data, error } = await supabase
+                .from('coupons')
+                .select('email')
+                .eq('email', email);
+
+            return { data, error };
+        } catch (error) {
+            console.error('Error checking email with Supabase:', error.message);
             return { error };
         }
     },
