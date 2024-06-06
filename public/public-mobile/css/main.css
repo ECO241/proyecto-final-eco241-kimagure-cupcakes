@@ -1,0 +1,138 @@
+nav{
+    background-color: #0C0540;;
+    padding: 5%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#Logo{
+    width: 140px;
+}
+
+#menu{
+    width: 30px;
+    margin-left: 100px;
+    margin-bottom: 10px;
+}
+
+#carousel{
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+#carousel img{
+    margin-right: 0%;
+    margin-left: 0%;
+    width: 100%;
+    margin-bottom: 0;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+h3{ font-family: "Montserrat", sans-serif;
+color: #5912CD;
+margin-left: 5%;
+margin-right: 5%;
+margin-top: 5%;}
+
+button{
+    font-family: 'Satisfy';
+}
+
+#special{
+    background-color: #B6BEFA;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#special img{
+    width: 220px;
+    position: relative;
+    margin-left: -4%;
+}
+
+#code_coupon{
+    font-family: 'Satisfy';
+}
+
+#special h2{ font-family: "Montserrat", sans-serif;
+    color: #0C0540;
+    position: relative;
+    margin-right: 3%;
+    margin-left: 50%;
+margin-top: -50%;
+font-size: 18px;}
+
+#special p{ font-family: "Montserrat", sans-serif;
+    color: #000000;
+    position: relative;
+    margin-left: 50%;
+    margin-right: 3%;
+margin-top: 5%;}
+
+#special button{ font-family: "Montserrat", sans-serif;
+    position: relative;
+    margin-left: 3%;
+    margin-right: 3%;
+margin-top: 5%;
+margin-bottom: 4%;
+}
+
+p{ font-family: "Montserrat", sans-serif;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 13px;
+
+}
+
+#coupon{
+    background-color: #B6BEFA;
+    margin-top: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+h2{
+    font-family: 'Montserrat';
+    color: #0C0540;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#products div{
+    margin: 0%;
+}
+#products h3{
+    padding-bottom: 5px;
+}
+#products p{
+    padding-bottom: 15px;
+}
+
+#best div{
+    margin: 0%;
+}
+#best h3{
+    padding-bottom: 5px;
+}
+#best p{
+    padding-bottom: 15px;
+}
+
+#trends div{
+    margin: 0%;
+}
+#trends h3{
+    padding-bottom: 5px;
+}
+#trends p{
+    padding-bottom: 15px;
+}

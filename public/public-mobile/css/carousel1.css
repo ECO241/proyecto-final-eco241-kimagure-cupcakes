@@ -5,9 +5,11 @@
     position: relative; /* Necesario para el posicionamiento absoluto de los puntos */
 }
 #carousel div {
-    width: 300px; /* Ancho fijo para cada elemento */
+    width: 360px; /* Ancho fijo para cada elemento */
     margin: 0 auto; /* Centrado horizontal */
-    text-align: center; /* Centrado del contenido */
+    text-align: center;
+    margin-bottom: 1.5%; /* Centrado del contenido */
+    padding-bottom: 10px;
 }
 #carousel img {
     max-width: 100%; /* Ajuste de tamaño máximo para las imágenes */
@@ -30,8 +32,8 @@
 }
 .slick-dots li button {
     font-size: 0; /* Oculta el número */
-    width: 12px; /* Ancho del punto */
-    height: 12px; /* Alto del punto */
+    width: 0.5px; /* Ancho del punto */
+    height: 0.5px; /* Alto del punto */
     background-color: #bbb; /* Color del punto inactivo */
     border: none; /* Sin borde */
     border-radius: 50%; /* Borde redondeado */
@@ -39,5 +41,5 @@
     outline: none; /* Elimina el contorno */
 }
 .slick-dots li.slick-active button {
-    background-color: #000; /* Color del punto activo */
+    background-color: #5912CD; /* Color del punto activo */
 }

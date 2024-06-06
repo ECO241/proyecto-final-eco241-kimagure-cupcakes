@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+}
+
+img{
+    width: 100vw;
+    margin-bottom: 0;
+}
+
+/* Container Styles */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Header Styles */
+.header {
+    width: 100vw;
+    height: 20vh;
+    margin-top: -10%;
+    margin-bottom: 50px;
+    background-color: white;
+    border-radius: 20px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.header h1 {
+    font-family: 'Satisfy';
+    font-size: 30px;
+    color: #5912CD; /* Same purple color as the "Login" button */
+    margin-left: 0%;
+    margin-top: 20%;
+}
+
+.header img{
+    width: 60vw;
+}
+
+/* Form Styles */
+#signupForm {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#signupForm label {
+    display: block;
+    font-weight: bold;
+    color: #5912CD;;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    margin-left: -70%;
+}
+
+#signupForm input {
+    width: 300px;
+    height: 20px;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #5a12cd96;;
+    border: 3px solid #9858ffa9;
+    border-radius: 40px;
+    transition: border-color 0.3s;
+    outline: none;
+    font-size: medium;
+    font-family: 'Satisfy';
+}
+
+input::placeholder{
+    color: #36008d96;
+    font-size: medium;
+    font-family: "Montserrat", sans-serif;
+}
+
+#signupForm input:focus {
+    border-color: #5912CD;; /* Same purple color as the "Login" button */
+}
+
+.error {
+    color: red;
+    font-size: 0.9em;
+}
+
+/* Button Styles */
+button {
+    font-family: 'Satisfy';
+    font-size: medium;
+    font-weight: 500;
+    width: 50%;
+    padding: 10px;
+    background-color: #5912CD;/* Same purple color as the "Login" button */
+    border: none;
+    border-radius: 30px;
+    color: #ffffff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    color: #5912CD;
+    border: 2px #5912CD;
+    background-color: #ffffff;
+}
+
+@media (max-width: 1440px) and (max-height: 3200px) {
+
+}

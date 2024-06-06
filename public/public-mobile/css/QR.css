@@ -1,0 +1,17 @@
+body{
+    margin: 0%;
+}
+h1{
+    font-family: 'Satisfy';
+    font-size: 30px;
+    display: flex;
+    margin-left: 3%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    color: #5912CD;;
+}
+
+img{
+    display: flex;
+    flex-direction: column;
+}

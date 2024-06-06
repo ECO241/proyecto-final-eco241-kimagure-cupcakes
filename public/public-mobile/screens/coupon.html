@@ -4,19 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cupón de descuento</title>
-  <script src="/socket.io/socket.io.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/coupon.css">
 </head>
 <body>
     <div id="from">
         <section>
-            <img src="" alt="">
-            <div>
+            <img src="https://wzjkgtjtumrfyienkajp.supabase.co/storage/v1/object/sign/General/Inicio.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHZW5lcmFsL0luaWNpby5wbmciLCJpYXQiOjE3MTc2NTM4NzIsImV4cCI6MTcyMDI0NTg3Mn0.K1AUMt1H7wFV-gfsxyrVaTRuGASAFlgM5OptU8Pxmi4&t=2024-06-06T06%3A04%3A32.311Z" alt="">
+            <div id="cupon">
                 <h1>-30%</h1>
                 <p>Discount</p>
-                <p>Up to</p>
+                <p id="up_to">Up to</p>
             </div>
-            <br>
-            <div>
+            <hr>
+            <div id="cupon_discount">
                 <div id="discount"></div>
                 <button id="buyNowButton">Buying now</button>
             </div>
