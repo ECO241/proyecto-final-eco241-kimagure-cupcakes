@@ -1,0 +1,166 @@
+body{
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    margin-bottom: 5%;
+}
+img{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+h1{
+    font-family: 'Satisfy';
+    font-size: 55px;
+    display: flex;
+    margin-top: -55%;
+    margin-bottom: 2%;
+    color: #5912CD;;
+}
+
+#cupon{
+    border-color: #5912CD;
+    margin-left: 8%;
+    border: 3px solid #5912CD;
+    padding-top: 180px;
+    box-sizing: border-box;
+    margin-top: -80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px #6201ffb5;
+}
+
+p{
+    color: #5912CD;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: larger;
+    font-weight:700;
+    font-style: normal;
+    margin-top: -5%;}
+
+#up_to{
+    font-family: 'Satisfy';
+    font-optical-sizing: auto;
+    font-size: 35px;
+    font-weight:800;
+    font-style: normal;
+    color: #5912CD;
+    margin-top: 3%;
+}
+#cupon_discount{
+margin-top: 1%;
+}
+#discount{
+    color: rgba(115, 51, 218, 0.862);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: larger;
+    font-weight:700;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#buyNowButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 50px;
+    font-size: larger;
+    border-radius: 30px;
+    border: none;
+    background-color: #ffffff;
+    border: 2px #5912CD;
+    color: #5912CD;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: larger;
+    font-weight:500;
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-bottom: 10%;
+  cursor: pointer;
+}
+
+
+#buyNowButton:active{
+    border: 2px #5912CD;
+    background-color: #ac8ce1;
+    color: #ffffff;
+}
+@media (max-width: 1440px) and (max-height: 3200px) {
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+}
+
+img{
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 0;
+}
+
+#cupon {
+    border: 5px solid #7a27dd;
+    text-align: center;
+    color: #7a27dd;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    height: 16vh;
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    border-color: #5912CD;
+    border: 3px solid #5912CD;
+    box-shadow: 0px 0px 15px #6201ffb5;
+}
+#cupon h1 {
+    font-family: 'Satisfy';
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#cupon p {
+    margin-bottom: 60px;
+    font-size: 24px;
+}
+
+#up_to {
+    font-family: 'Satisfy';
+    font-size: 36px;
+    font-style: italic;
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+}
+hr{
+    border: 0;
+    border-top: 5px dotted #8947da;
+    margin: 20px 0;
+}
+#buyNowButton {
+    background-color: #5912CD;
+    color:#ffffff ;
+    font-family: 'Satisfy';
+    font-size: 23px;
+}
+}

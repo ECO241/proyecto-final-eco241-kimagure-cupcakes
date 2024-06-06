@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-</head>
-<body>
-    <h1>Sign Up</h1>
-    <form id="signupForm">
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
-        <span id="emailError" class="error"></span><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br>
-        <span id="passwordError" class="error"></span><br><br>
-        <button type="submit">Sign Up</button>
-    </form>
-
-    <script src="../js/sign_up.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../css/carousel2.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../css/sign_up.css" />
+        <title>Sign Up</title>
+    </head>
+    <body>
+        <img src="https://wzjkgtjtumrfyienkajp.supabase.co/storage/v1/object/sign/General/Inicio.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHZW5lcmFsL0luaWNpby5wbmciLCJpYXQiOjE3MTc2NTM4NzIsImV4cCI6MTcyMDI0NTg3Mn0.K1AUMt1H7wFV-gfsxyrVaTRuGASAFlgM5OptU8Pxmi4&t=2024-06-06T06%3A04%3A32.311Z" alt="">
+        <div class="container">
+            <div class="header">
+                <h1>Sign Up</h1>
+            </div>
+            <form id="signupForm">
+                <label for="email">Email</label><br />
+                <input placeholder="Email" type="email" id="email" name="email" required /><br />
+                <span id="emailError" class="error"></span><br />
+                <label placeholder="Pas" for="password">Password</label><br />
+                <input placeholder="Password" type="password" id="password" name="password" required/><br />
+                <span id="passwordError" class="error"></span><br /><br />
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <script src="../js/sign_up.js"></script>
+    </body>
 </html>
+
