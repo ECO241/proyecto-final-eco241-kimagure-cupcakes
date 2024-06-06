@@ -33,7 +33,7 @@ function instructionsHandler(letter, actualState) {
         if (letter !== insDirection && (letter === 'w' || letter === 's')) {
             insDirection = letter;
             insCounter += 1;
-            if (insCounter > 2) {
+            if (insCounter > 4) {
                 insCounter = 0;
                 instructionsDone('icing');
                 return 'icing';
@@ -44,7 +44,7 @@ function instructionsHandler(letter, actualState) {
         if (letter !== insDirection && (letter === 'a' || letter === 'd')) {
             insDirection = letter;
             insCounter += 1;
-            if (insCounter > 2) {
+            if (insCounter > 4) {
                 insCounter = 0;
                 instructionsDone('topping');
                 return 'topping';
