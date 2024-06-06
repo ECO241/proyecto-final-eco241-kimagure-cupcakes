@@ -43,7 +43,7 @@ function instructionsHandler(letter, actualState) {
         }
         return 'icingIns';
     case 'toppingIns':
-        if (lastKeys.slice(-5).join('') === 'zzz') {
+        if (lastKeys.slice(-5).join('') === 'zzzzz') {
             instructionsDone('finish');
             return 'finish';
         }
