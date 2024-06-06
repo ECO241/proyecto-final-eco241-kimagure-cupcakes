@@ -1,12 +1,12 @@
 /* Estilos para el carrusel y sus elementos */
 #carousel2, #carousel3, #carousel4 {
-    width: 80%; /* Ancho del carrusel */
+    width: 100%; /* Ancho del carrusel */
     margin: 0 auto; /* Centrado horizontal */
     position: relative; /* Necesario para el posicionamiento absoluto de los puntos */
 }
 #carousel2 div, #carousel3 div, #carousel4 div {
-    width: 300px; /* Ancho fijo para cada elemento */
-    margin: 0 auto; /* Centrado horizontal */
+    width: 100%; /* Ancho fijo para cada elemento */
+    margin: 10px auto; /* Centrado horizontal */
     text-align: center; /* Centrado del contenido */
 }
 #carousel2 img, #carousel3 img, #carousel4 img{

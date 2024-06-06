@@ -9,6 +9,7 @@
     margin: 0 auto; /* Centrado horizontal */
     text-align: center;
     margin-bottom: 1.5%; /* Centrado del contenido */
+    padding-bottom: 10px;
 }
 #carousel img {
     max-width: 100%; /* Ajuste de tamaño máximo para las imágenes */
@@ -31,8 +32,8 @@
 }
 .slick-dots li button {
     font-size: 0; /* Oculta el número */
-    width: 3px; /* Ancho del punto */
-    height: 3px; /* Alto del punto */
+    width: 0.5px; /* Ancho del punto */
+    height: 0.5px; /* Alto del punto */
     background-color: #bbb; /* Color del punto inactivo */
     border: none; /* Sin borde */
     border-radius: 50%; /* Borde redondeado */
