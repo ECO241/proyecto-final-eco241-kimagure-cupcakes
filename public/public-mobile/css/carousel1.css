@@ -1,0 +1,43 @@
+/* Estilos para el carrusel y sus elementos */
+#carousel {
+    width: 80%; /* Ancho del carrusel */
+    margin: 0 auto; /* Centrado horizontal */
+    position: relative; /* Necesario para el posicionamiento absoluto de los puntos */
+}
+#carousel div {
+    width: 300px; /* Ancho fijo para cada elemento */
+    margin: 0 auto; /* Centrado horizontal */
+    text-align: center; /* Centrado del contenido */
+}
+#carousel img {
+    max-width: 100%; /* Ajuste de tamaño máximo para las imágenes */
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+/* Estilos para los puntos de navegación */
+.slick-dots {
+    position: absolute; /* Posiciona los puntos de navegación */
+    bottom: 10px; /* Ajusta la posición verticalmente */
+    width: 100%; /* Ancho del contenedor de los puntos */
+    text-align: center; /* Centra horizontalmente */
+    list-style: none; /* Elimina los estilos de lista */
+    padding: 0; /* Elimina el relleno */
+    margin: 0; /* Elimina el margen */
+}
+.slick-dots li {
+    display: inline-block; /* Muestra los puntos en línea */
+    margin: 0 5px; /* Espaciado entre los puntos */
+}
+.slick-dots li button {
+    font-size: 0; /* Oculta el número */
+    width: 12px; /* Ancho del punto */
+    height: 12px; /* Alto del punto */
+    background-color: #bbb; /* Color del punto inactivo */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Borde redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar sobre los puntos */
+    outline: none; /* Elimina el contorno */
+}
+.slick-dots li.slick-active button {
+    background-color: #000; /* Color del punto activo */
+}

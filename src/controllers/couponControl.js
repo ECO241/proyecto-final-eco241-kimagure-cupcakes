@@ -1,15 +1,60 @@
 const QRCode = require('qrcode');
+const couponService = require('../services/couponService');
 
 const couponController = {
     generateQR: async (req, res) => {
         try {
-            const url = 'https://b143-186-168-96-243.ngrok-free.app/mobile'; // URL de la página del cupón
-            const qrCodeDataURL = await QRCode.toDataURL(url);
+            const couponUrl = `${req.protocol}://${req.get('host')}/mobile`;
+            const qrCode = await QRCode.toDataURL(couponUrl);
 
-            res.status(200).json({ qrCode: qrCodeDataURL });
+            // Guardar el QR code en Supabase
+            const result = await couponService.saveQRCode(qrCode);
+
+            if (result.error) {
+                throw new Error(result.error.message);
+            }
+
+            res.status(200).json({ qrCode });
         } catch (error) {
             console.error('Error generating QR code:', error.message);
             res.status(500).send('Error generating QR code');
+        }
+    },
+
+    getCarouselData: async (req, res) => {
+        try {
+            const { data, error } = await couponService.getCarouselData();
+            if (error) {
+                throw new Error(error.message);
+            }
+            res.status(200).json(data);
+        } catch (error) {
+            console.error('Error fetching carousel data:', error.message);
+            res.status(500).send('Error fetching carousel data');
+        }
+    },
+    getCarouselData2: async (req, res) => {
+        try {
+            const { data, error } = await couponService.getCarouselData2();
+            if (error) {
+                throw new Error(error.message);
+            }
+            res.status(200).json(data);
+        } catch (error) {
+            console.error('Error fetching carousel data:', error.message);
+            res.status(500).send('Error fetching carousel data');
+        }
+    },
+    getCarouselData3: async (req, res) => {
+        try {
+            const { data, error } = await couponService.getCarouselData3();
+            if (error) {
+                throw new Error(error.message);
+            }
+            res.status(200).json(data);
+        } catch (error) {
+            console.error('Error fetching carousel data:', error.message);
+            res.status(500).send('Error fetching carousel data');
         }
     },
 };

@@ -1,4 +1,4 @@
-const PORT = 'http://localhost:3000';
+const PORT = 'https://a262-186-168-96-243.ngrok-free.app';
 // eslint-disable-next-line no-undef
 const socket = io(PORT);
 
@@ -28,6 +28,5 @@ nameBtn.addEventListener('click', () => {
 });
 
 socket.on('finishorder', (cup) => {
-    screenWaiting.style.display = 'none';
-    screenFrom.style.display = 'block';
+    window.location.href = './screens/coupon.html';
 });

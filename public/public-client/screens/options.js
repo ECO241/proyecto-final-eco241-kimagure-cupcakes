@@ -9,13 +9,11 @@ organizeFlavors();
 
 async function organizeFlavors() {
     const flavors = await fetchFunctions.getFlavors();
-    console.log(flavors);
     fullarray = {
         flavor: flavors.filter((f) => f.type === 'flavor'),
         icing: flavors.filter((f) => f.type === 'icing'),
         topping: flavors.filter((f) => f.type === 'topping'),
     };
-    console.log(fullarray);
 }
 
 async function renderOptions(actualState) {

@@ -40,6 +40,7 @@ const orderService = {
             if (error) {
                 throw new Error(error.message);
             }
+            return data;
         } catch (error) {
             console.error('Error obteniendo órdenes:', error.message);
             throw error;
