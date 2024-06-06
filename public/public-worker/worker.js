@@ -1,4 +1,4 @@
-const PORT = 'http://localhost:3000';
+const PORT = 'https://a262-186-168-96-243.ngrok-free.app';
 const socket = io();
 
 const order = document.querySelector('.order');
@@ -44,5 +44,8 @@ async function updateHistory() {
 socket.on('finishorder', (cup) => {
     fetchFunctions.createOrder(cup);
     updateOptions(cupcake);
-    updateHistory();
+
+    setTimeout(() => {
+        updateHistory();
+    }, 2000);
 });

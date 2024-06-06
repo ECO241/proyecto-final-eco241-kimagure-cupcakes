@@ -1,4 +1,4 @@
-#start {
+#start, #waiting {
     margin: 0;
     padding: 0;
     background-image: url('https://github.com/ECO241/proyecto-final-eco241-kimagure-cupcakes/blob/sofia/imagenes/img%20start.png?raw=true');
@@ -11,7 +11,11 @@
     text-align: center;
     height: 100vh;
     width: 100vw;
+    font-family: 'Poppins';
+}
 
+#waiting {
+    align-content: center;
 }
 
 #start section {
@@ -20,7 +24,7 @@
     align-items: center;
 }
 
-#start h1 {
+h1 {
     margin-bottom: 20px;
     font-family: 'Satisfy';
     color: #352626;

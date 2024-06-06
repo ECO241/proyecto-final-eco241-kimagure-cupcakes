@@ -28,7 +28,6 @@ const lastKeys = [];
 
 function instructionsHandler(letter, actualState) {
     lastKeys.push(letter);
-    console.log(actualState);
 
     switch (actualState) {
     case 'flavorIns':
@@ -55,7 +54,6 @@ function instructionsHandler(letter, actualState) {
 }
 
 function instructionsDone(nextState) {
-    console.log(array);
     const textOptions = ['Yummy!', 'Delicious!', 'Fantastic!'];
     screenSelected.innerHTML = '';
     const img = document.createElement('img');

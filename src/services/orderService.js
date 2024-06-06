@@ -27,7 +27,7 @@ const orderService = {
                 throw new Error(error.message);
             }
         } catch (error) {
-            console.error('Error al insertar en Supabase:', error.message);
+            console.error('Error obteniendo órdenes:', error.message);
             throw error;
         }
     },
@@ -40,7 +40,6 @@ const orderService = {
             if (error) {
                 throw new Error(error.message);
             }
-
             return data;
         } catch (error) {
             console.error('Error obteniendo órdenes:', error.message);

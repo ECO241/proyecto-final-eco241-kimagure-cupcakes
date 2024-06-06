@@ -7,7 +7,6 @@ function startHandler(letter) {
 }
 
 socket.on('namefilled', (cupName) => {
-    console.log(state);
     cupcake.name = cupName;
     renderOptions('flavor');
     screenQr.style.display = 'none';
