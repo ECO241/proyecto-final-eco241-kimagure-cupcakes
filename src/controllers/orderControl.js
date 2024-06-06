@@ -3,7 +3,8 @@ const orderService = require('../services/orderService');
 const orderController = {
     getAllOrders: async (req, res) => {
         try {
-            // Aquí puedes implementar la lógica para obtener todas las órdenes si es necesario
+            const orders = await orderService.getAllOrders();
+            res.json(orders);
         } catch (error) {
             console.error('Error obteniendo órdenes:', error.message);
             res.status(500).send(error.message);

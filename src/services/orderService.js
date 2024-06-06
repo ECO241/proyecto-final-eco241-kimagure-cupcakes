@@ -31,6 +31,22 @@ const orderService = {
             throw error;
         }
     },
+    getAllOrders: async () => {
+        try {
+            const { data, error } = await supabase
+                .from(tableName)
+                .select('*');
+
+            if (error) {
+                throw new Error(error.message);
+            }
+
+            return data;
+        } catch (error) {
+            console.error('Error obteniendo órdenes:', error.message);
+            throw error;
+        }
+    },
 };
 
 module.exports = orderService;

@@ -1,4 +1,4 @@
-const PORT = 'https://0e4f-186-168-96-243.ngrok-free.app';
+const PORT = 'http://localhost:3000';
 const socket = io();
 
 const order = document.querySelector('.order');
