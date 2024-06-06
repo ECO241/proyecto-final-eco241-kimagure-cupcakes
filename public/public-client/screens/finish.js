@@ -3,3 +3,7 @@ function renderFinish() {
 
     socketFuntion.finishOrder(cupcake);
 }
+
+socket.on('restart', () => {
+    window.location.reload();
+});

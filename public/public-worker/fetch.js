@@ -35,4 +35,15 @@ const fetchFunctions = {
             .catch((error) => console.error('Error fetching QR code:', error));
         return qr;
     },
+
+    getOrders: async () => {
+        try {
+            const response = await fetch(`${PORT}/orders`);
+            const orders = await response.json();
+            return orders;
+        } catch (err) {
+            console.error('Error fetching orders:', err);
+            throw err;
+        }
+    },
 };

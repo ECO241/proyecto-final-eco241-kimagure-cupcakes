@@ -1,4 +1,4 @@
-const PORT = 'https://0e4f-186-168-96-243.ngrok-free.app';
+const PORT = 'http://localhost:3000';
 const socket = io();
 
 const order = document.querySelector('.order');
@@ -12,6 +12,7 @@ const cupcake = {
 };
 
 updateOptions(cupcake);
+updateHistory();
 
 socket.on('update', (cupcake) => {
     updateOptions(cupcake);
@@ -19,19 +20,29 @@ socket.on('update', (cupcake) => {
 
 function updateOptions(cupcake) {
     order.innerHTML = `
+        <div>
         <p><b>${cupcake.name}</b></p>
         <p>Flavor: ${cupcake.flavor}</p>
         <p>Icing: ${cupcake.icing}</p>
-        <p>Topping: ${cupcake.topping}</p>`;
+        <p>Topping: ${cupcake.topping}</p>
+        </div>`;
+}
+
+async function updateHistory() {
+    const data = await fetchFunctions.getOrders();
+    const orders = data.slice(0, 5);
+    history.innerHTML = '';
+    orders.forEach((cup) => {
+        const cupDiv = document.createElement('div');
+        cupDiv.innerHTML = `
+            <p><b>${cup.name}</b></p>
+            <p>${cup.flavor} - ${cup.icing} - ${cup.topping}</p>`;
+        history.appendChild(cupDiv);
+    });
 }
 
 socket.on('finishorder', (cup) => {
     fetchFunctions.createOrder(cup);
     updateOptions(cupcake);
-
-    const cupDiv = document.createElement('div');
-    cupDiv.innerHTML = `
-        <p><b>${cup.name}</b></p>
-        <p>${cup.flavor} - ${cup.icing} - ${cup.topping}</p>`;
-    history.appendChild(cupDiv);
+    updateHistory();
 });

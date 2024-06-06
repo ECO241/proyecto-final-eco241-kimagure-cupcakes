@@ -66,6 +66,10 @@ io.on('connection', (socket) => {
     socket.on('finishorder', (order) => {
         io.emit('finishorder', order);
     });
+
+    socket.on('restart', () => {
+        io.emit('restart');
+    });
 });
 
 function emitMove(data) {

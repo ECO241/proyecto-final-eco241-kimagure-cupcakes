@@ -31,6 +31,20 @@ const orderService = {
             throw error;
         }
     },
+    getAllOrders: async () => {
+        try {
+            const { data, error } = await supabase
+                .from(tableName)
+                .select('*').order('created_at', { ascending: false });
+
+            if (error) {
+                throw new Error(error.message);
+            }
+        } catch (error) {
+            console.error('Error obteniendo órdenes:', error.message);
+            throw error;
+        }
+    },
 };
 
 module.exports = orderService;
